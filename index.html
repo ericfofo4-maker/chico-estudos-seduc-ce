@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHICO ESTUDOS V9 — SEDUC-CE | Professor de Filosofia</title>
+<title>CHICO ESTUDOS V10 — SEDUC-CE | Professor de Filosofia</title>
 <style>
 
 :root{
@@ -1865,6 +1865,238 @@ html[data-theme="dark"] .v9-watermark-emblem{
     }
 }
 </style>
+<style id="chico-v10-radar-style">
+
+/* ==========================================================
+   CHICO ESTUDOS V10
+   Identidade Ceará + Radar SEDUC
+   ========================================================== */
+
+.course-emblem-card-v7{
+    position:relative !important;
+    overflow:hidden !important;
+    isolation:isolate;
+}
+
+/* Raios inspirados na identidade visual do Ceará */
+.course-emblem-card-v7::before{
+    content:"";
+    position:absolute;
+    width:430px;
+    height:430px;
+    left:50%;
+    top:44%;
+    transform:translate(-50%,-50%) rotate(-8deg);
+    background:
+        repeating-conic-gradient(
+            from 0deg,
+            rgba(24,126,240,.78) 0deg 4deg,
+            transparent 4deg 17deg
+        );
+    border-radius:50%;
+    opacity:.34;
+    z-index:0;
+    pointer-events:none;
+}
+
+.course-emblem-card-v7::after{
+    content:"";
+    position:absolute;
+    width:245px;
+    height:245px;
+    left:50%;
+    top:43%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(
+        circle,
+        rgba(255,255,255,.98) 0%,
+        rgba(255,255,255,.80) 42%,
+        rgba(255,255,255,0) 73%
+    );
+    z-index:1;
+    pointer-events:none;
+}
+
+.course-emblem-card-v7 > *{
+    position:relative;
+    z-index:3;
+}
+
+.course-emblem-card-v7 img{
+    transform:
+        perspective(900px)
+        rotate(-5deg)
+        rotateY(-7deg)
+        translateY(-3px);
+    filter:
+        drop-shadow(0 18px 17px rgba(5,43,83,.22))
+        drop-shadow(0 4px 4px rgba(5,43,83,.13));
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.course-emblem-card-v7:hover img{
+    transform:
+        perspective(900px)
+        rotate(-2deg)
+        rotateY(-2deg)
+        translateY(-7px)
+        scale(1.025);
+    filter:
+        drop-shadow(0 23px 19px rgba(5,43,83,.25))
+        drop-shadow(0 5px 5px rgba(5,43,83,.12));
+}
+
+
+/* ==========================================================
+   RADAR SEDUC
+   ========================================================== */
+
+.v10-radar-home{
+    margin-top:18px;
+    border:1px solid #d4e5f7;
+    border-left:4px solid #2385ed;
+    border-radius:13px;
+    background:
+        linear-gradient(
+            110deg,
+            rgba(242,249,255,.97),
+            rgba(255,255,255,.97)
+        );
+    padding:15px 17px;
+    box-shadow:0 5px 17px rgba(15,61,107,.06);
+}
+
+.v10-radar-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.v10-radar-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#1466bb;
+}
+
+.v10-radar-live{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 9px;
+    border-radius:999px;
+    background:#edf8f2;
+    border:1px solid #cce8d8;
+    color:#27724d;
+    font-size:9px;
+    font-weight:850;
+    letter-spacing:.6px;
+}
+
+.v10-radar-live::before{
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#29a568;
+    box-shadow:0 0 0 4px rgba(41,165,104,.11);
+}
+
+.v10-radar-title{
+    margin-top:10px;
+    color:#092a50;
+    font-size:16px;
+    font-weight:900;
+}
+
+.v10-radar-title strong{
+    color:#2079df;
+}
+
+.v10-radar-info{
+    margin-top:5px;
+    color:#65778e;
+    font-size:11px;
+    line-height:1.55;
+}
+
+.v10-radar-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:11px;
+    padding-top:10px;
+    border-top:1px solid #e2ebf4;
+}
+
+.v10-countdown{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#173451;
+    font-size:10px;
+    font-weight:750;
+}
+
+.v10-countdown strong{
+    font-size:12px;
+    color:#1268c5;
+}
+
+.v10-official{
+    font-size:9px;
+    color:#8090a5;
+}
+
+body.dark .v10-radar-home{
+    background:linear-gradient(
+        110deg,
+        rgba(14,37,69,.96),
+        rgba(10,29,56,.96)
+    );
+    border-color:#27527d;
+    border-left-color:#4aa3ff;
+}
+
+body.dark .v10-radar-title{
+    color:#f1f7ff;
+}
+
+body.dark .v10-radar-info,
+body.dark .v10-official{
+    color:#a9bdd4;
+}
+
+body.dark .v10-radar-bottom{
+    border-color:#294a6e;
+}
+
+body.dark .v10-countdown{
+    color:#d9e9fa;
+}
+
+@media(max-width:900px){
+
+    .course-emblem-card-v7::before{
+        width:350px;
+        height:350px;
+    }
+
+    .v10-radar-home{
+        padding:13px;
+    }
+}
+
+</style>
 </head>
 <body>
 <div class="app">
@@ -2011,6 +2243,44 @@ html[data-theme="dark"] .v9-watermark-emblem{
         </button>
         <button class="hero-secondary-btn" id="goBankTop">Banco de Questões</button>
       </div>
+<div id="seducRadarHome" class="v10-radar-home">
+
+    <div class="v10-radar-top">
+
+        <div class="v10-radar-label">
+            RADAR SEDUC-CE 2026
+        </div>
+
+        <div class="v10-radar-live">
+            CRONOGRAMA OFICIAL
+        </div>
+
+    </div>
+
+    <div class="v10-radar-title" id="v10RadarTitle">
+        Próximo marco:
+        <strong>Inscrições</strong>
+    </div>
+
+    <div class="v10-radar-info" id="v10RadarInfo">
+        Início das inscrições e da solicitação de isenção:
+        16 de setembro de 2026, às 8h.
+    </div>
+
+    <div class="v10-radar-bottom">
+
+        <div class="v10-countdown">
+            Faltam
+            <strong id="v10Countdown">calculando...</strong>
+        </div>
+
+        <div class="v10-official">
+            Fonte oficial: CEV / UECE
+        </div>
+
+    </div>
+
+</div>
     </div>
 
     <div class="course-emblem-card-v7">
@@ -3875,6 +4145,103 @@ function renderUECE(){
     criarVisualV9();
 
 })();
+</script>
+<script id="chico-v10-radar-js">
+
+(function(){
+
+    const milestones = [
+
+        {
+            date: "2026-09-16T08:00:00-03:00",
+            title: "Início das inscrições",
+            info: "Inscrições e solicitação de isenção começam em 16 de setembro de 2026, às 8h."
+        },
+
+        {
+            date: "2026-10-15T17:00:00-03:00",
+            title: "Fim das inscrições",
+            info: "As inscrições estão previstas para terminar em 15 de outubro de 2026, às 17h."
+        },
+
+        {
+            date: "2026-11-17T00:00:00-03:00",
+            title: "Cartão de Informação",
+            info: "Divulgação prevista do Cartão de Informação do Candidato em 17 de novembro de 2026."
+        },
+
+        {
+            date: "2026-11-22T00:00:00-03:00",
+            title: "Prova Objetiva",
+            info: "Aplicação das Provas Objetivas prevista para 22 de novembro de 2026."
+        }
+
+    ];
+
+    function updateRadar(){
+
+        const now = new Date();
+
+        let next = milestones.find(
+            item => new Date(item.date) > now
+        );
+
+        if(!next){
+            next = milestones[milestones.length - 1];
+        }
+
+        const target = new Date(next.date);
+        const diff = target - now;
+
+        const title = document.getElementById("v10RadarTitle");
+        const info = document.getElementById("v10RadarInfo");
+        const countdown = document.getElementById("v10Countdown");
+
+        if(title){
+            title.innerHTML =
+                'Próximo marco: <strong>' +
+                next.title +
+                '</strong>';
+        }
+
+        if(info){
+            info.textContent = next.info;
+        }
+
+        if(!countdown){
+            return;
+        }
+
+        if(diff <= 0){
+
+            countdown.textContent = "evento em andamento";
+            return;
+        }
+
+        const days =
+            Math.floor(diff / 86400000);
+
+        const hours =
+            Math.floor((diff % 86400000) / 3600000);
+
+        const minutes =
+            Math.floor((diff % 3600000) / 60000);
+
+        countdown.textContent =
+            days + " dias, " +
+            hours + "h e " +
+            minutes + "min";
+    }
+
+    updateRadar();
+
+    setInterval(
+        updateRadar,
+        60000
+    );
+
+})();
+
 </script>
 </body>
 </html>
