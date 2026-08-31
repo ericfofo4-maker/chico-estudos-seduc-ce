@@ -2921,6 +2921,246 @@ body.dark .chico-smart-review-icon{
 }
 
 </style>
+<style id="chico-v10-ranking-style">
+
+.chico-ranking-panel{
+    margin:18px 0;
+}
+
+.chico-ranking-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:18px;
+    padding:19px;
+    border:1px solid #cfdef0;
+    border-radius:14px 14px 0 0;
+    background:
+        linear-gradient(
+            120deg,
+            #f2f8ff,
+            #ffffff
+        );
+}
+
+.chico-ranking-header small{
+    display:block;
+    color:#1471ce;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.chico-ranking-header h2{
+    margin:5px 0 4px;
+    color:#0b2e55;
+    font-size:18px;
+}
+
+.chico-ranking-header p{
+    margin:0;
+    color:#708197;
+    font-size:9px;
+    line-height:1.55;
+}
+
+.chico-ranking-total{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-width:105px;
+    padding:10px 14px;
+    border-radius:11px;
+    background:#eaf4ff;
+    border:1px solid #c8dff7;
+}
+
+.chico-ranking-total strong{
+    color:#1269c5;
+    font-size:25px;
+}
+
+.chico-ranking-total span{
+    margin-top:2px;
+    color:#657b94;
+    font-size:8px;
+    font-weight:800;
+}
+
+.chico-ranking-list{
+    display:grid;
+    border-left:1px solid #cfdef0;
+    border-right:1px solid #cfdef0;
+    border-bottom:1px solid #cfdef0;
+    border-radius:0 0 14px 14px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.chico-ranking-item{
+    display:grid;
+    grid-template-columns:42px 1fr auto;
+    gap:13px;
+    align-items:center;
+    padding:14px 17px;
+    border-bottom:1px solid #e5edf5;
+}
+
+.chico-ranking-item:last-child{
+    border-bottom:0;
+}
+
+.chico-ranking-position{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:#eaf4ff;
+    color:#126bc9;
+    font-size:12px;
+    font-weight:900;
+}
+
+.chico-ranking-title{
+    color:#102f53;
+    font-size:12px;
+    font-weight:900;
+}
+
+.chico-ranking-meta{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-top:5px;
+}
+
+.chico-ranking-meta span{
+    padding:3px 6px;
+    border-radius:999px;
+    background:#f1f5fa;
+    color:#667b92;
+    font-size:7px;
+    font-weight:800;
+}
+
+.chico-ranking-bar{
+    height:5px;
+    margin-top:8px;
+    overflow:hidden;
+    border-radius:999px;
+    background:#e8eef5;
+}
+
+.chico-ranking-bar span{
+    display:block;
+    height:100%;
+    border-radius:inherit;
+    background:
+        linear-gradient(
+            90deg,
+            #1ca5c8,
+            #2378dc
+        );
+}
+
+.chico-ranking-youtube{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:32px;
+    padding:0 10px;
+    border:1px solid #bdd6ef;
+    border-radius:8px;
+    background:#f6fbff;
+    color:#1166bd !important;
+    text-decoration:none;
+    font-size:8px;
+    font-weight:900;
+}
+
+.chico-ranking-empty{
+    padding:18px;
+    border:1px dashed #c7d8e9;
+    border-radius:13px;
+    background:#fbfdff;
+}
+
+.chico-ranking-empty small{
+    color:#1871cb;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.chico-ranking-empty strong{
+    display:block;
+    margin-top:5px;
+    color:#123354;
+    font-size:13px;
+}
+
+.chico-ranking-empty p{
+    margin:7px 0 0;
+    color:#7a899a;
+    font-size:9px;
+    line-height:1.55;
+}
+
+body.dark .chico-ranking-header,
+body.dark .chico-ranking-list,
+body.dark .chico-ranking-item{
+    background:#0d294b;
+    border-color:#294c70;
+}
+
+body.dark .chico-ranking-header h2,
+body.dark .chico-ranking-title{
+    color:#eef6ff;
+}
+
+body.dark .chico-ranking-total{
+    background:#14385f;
+    border-color:#31577e;
+}
+
+body.dark .chico-ranking-meta span{
+    background:#17395d;
+    color:#bdd0e4;
+}
+
+body.dark .chico-ranking-empty{
+    background:#0d294b;
+    border-color:#31577e;
+}
+
+body.dark .chico-ranking-empty strong{
+    color:#edf6ff;
+}
+
+@media(max-width:700px){
+
+    .chico-ranking-header{
+        flex-direction:column;
+    }
+
+    .chico-ranking-total{
+        align-items:flex-start;
+    }
+
+    .chico-ranking-item{
+        grid-template-columns:36px 1fr;
+    }
+
+    .chico-ranking-youtube{
+        grid-column:2;
+        width:max-content;
+    }
+}
+
+</style>
 </head>
 <body>
 <div class="app">
@@ -5904,6 +6144,11 @@ function renderUECE(){
 <!-- CHICO RADAR JSON START -->
 <script src="./assets/js/radar-dados.js"></script>
 <!-- CHICO RADAR JSON END -->
+
+
+<!-- CHICO RANKING REVISAO START -->
+<script src="./assets/js/ranking-revisao.js"></script>
+<!-- CHICO RANKING REVISAO END -->
 
 </body>
 </html>
