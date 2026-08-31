@@ -2788,6 +2788,139 @@ body.dark .v10-municipio-meta span{
 }
 
 </style>
+<style id="chico-v10-smart-review-style">
+
+/* ==========================================================
+   CHICO V10 — REVISAO INTELIGENTE
+   ========================================================== */
+
+.chico-smart-review{
+    margin-top:13px;
+    padding:15px;
+    border:1px solid #cfe1f4;
+    border-left:4px solid #1676d2;
+    border-radius:11px;
+    background:
+        linear-gradient(
+            120deg,
+            #f5faff,
+            #ffffff
+        );
+}
+
+.chico-smart-review-head{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.chico-smart-review-icon{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:34px;
+    height:34px;
+    flex:0 0 34px;
+    border-radius:50%;
+    background:#e7f2ff;
+    color:#126bd0;
+    font-size:14px;
+    font-weight:900;
+}
+
+.chico-smart-review-head small{
+    display:block;
+    color:#1671cb;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.chico-smart-review-head strong{
+    display:block;
+    margin-top:3px;
+    color:#0b2f57;
+    font-size:13px;
+    line-height:1.35;
+}
+
+.chico-smart-review p{
+    margin:10px 0 0;
+    color:#65798f;
+    font-size:10px;
+    line-height:1.55;
+}
+
+.chico-smart-review-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.chico-youtube-review{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:35px;
+    padding:0 13px;
+    border-radius:8px;
+    background:#0b68c7;
+    color:#fff !important;
+    text-decoration:none;
+    font-size:9px;
+    font-weight:900;
+    transition:
+        transform .18s ease,
+        background .18s ease;
+}
+
+.chico-youtube-review:hover{
+    background:#0758ac;
+    transform:translateY(-1px);
+}
+
+.chico-review-query{
+    color:#8998aa;
+    font-size:8px;
+    line-height:1.4;
+}
+
+body.dark .chico-smart-review{
+    background:
+        linear-gradient(
+            120deg,
+            #0e2a4a,
+            #0b2340
+        );
+    border-color:#31577e;
+    border-left-color:#4a9df0;
+}
+
+body.dark .chico-smart-review-head strong{
+    color:#edf6ff;
+}
+
+body.dark .chico-smart-review p{
+    color:#afc2d6;
+}
+
+body.dark .chico-smart-review-icon{
+    background:#153b63;
+    color:#8ac4ff;
+}
+
+@media(max-width:650px){
+
+    .chico-smart-review-actions{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+}
+
+</style>
 </head>
 <body>
 <div class="app">
@@ -4604,8 +4737,83 @@ renderBank();
     const a=answers();
     root.innerHTML=g.wrongQs.map(q=>{
       const base=questionCard(q,"errors");
-      const review=`<div class="review-answer"><span class="answer-chip wrong">Sua resposta: ${esc(a[q.id])}</span><span class="answer-chip correct">Gabarito: ${esc(q.answer_key)}</span></div>`;
-      return base.replace("</article>",review+"</article>");
+      const topic=q.subarea||q.edital_item||q.area||"Conteúdo da questão";
+
+const banca=(q.meta&&q.meta.banca)
+    ? q.meta.banca
+    : "";
+
+const youtubeQuery=[
+    topic,
+    q.area,
+    banca,
+    "concurso professor"
+]
+.filter(Boolean)
+.join(" ");
+
+const youtubeUrl=
+    "https://www.youtube.com/results?search_query="+
+    encodeURIComponent(youtubeQuery);
+
+const review=`
+<div class="review-answer">
+
+    <span class="answer-chip wrong">
+        Sua resposta: ${esc(a[q.id])}
+    </span>
+
+    <span class="answer-chip correct">
+        Gabarito: ${esc(q.answer_key)}
+    </span>
+
+</div>
+
+<div class="chico-smart-review">
+
+    <div class="chico-smart-review-head">
+
+        <span class="chico-smart-review-icon">
+            ▶
+        </span>
+
+        <div>
+            <small>REVISÃO RECOMENDADA</small>
+            <strong>${esc(topic)}</strong>
+        </div>
+
+    </div>
+
+    <p>
+        Você errou uma questão deste conteúdo.
+        O CHICO recomenda uma revisão antes de tentar novamente.
+    </p>
+
+    <div class="chico-smart-review-actions">
+
+        <a
+            class="chico-youtube-review"
+            href="${youtubeUrl}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            ▶ Revisar no YouTube
+
+        </a>
+
+        <span class="chico-review-query">
+            Pesquisa preparada automaticamente pelo assunto da questão.
+        </span>
+
+    </div>
+
+</div>
+`;
+
+return base.replace(
+    "</article>",
+    review+"</article>"
+);
     }).join("");
     bindAnswerEvents(root);
     decorateQuestionCards(root);
