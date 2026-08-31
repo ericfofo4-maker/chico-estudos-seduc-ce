@@ -1,0 +1,47 @@
+name: Atualizar Radar CHICO
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "15 10 * * *"
+    - cron: "15 22 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar-radar:
+
+    runs-on: windows-latest
+
+    steps:
+
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Executar atualizador do Radar
+        shell: pwsh
+        run: |
+          ./scripts/atualizar-radar.ps1
+
+      - name: Verificar alteracoes
+        shell: pwsh
+        run: |
+          git status
+
+      - name: Publicar atualizacoes
+        shell: pwsh
+        run: |
+          git config user.name "CHICO Radar"
+          git config user.email "actions@github.com"
+
+          git add dados/
+
+          if (git diff --cached --quiet) {
+              Write-Host "Nenhuma atualizacao encontrada."
+              exit 0
+          }
+
+          git commit -m "Radar CHICO - atualizacao automatica"
+          git push
