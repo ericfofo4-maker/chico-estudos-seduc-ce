@@ -2097,6 +2097,697 @@ body.dark .v10-countdown{
 }
 
 </style>
+<style id="chico-v10-noticias-style">
+
+/* ==========================================================
+   CHICO V10 — RADAR DE NOTICIAS
+   ========================================================== */
+
+.v10-news-shell{
+    max-width:1180px;
+    margin:0 auto;
+}
+
+.v10-news-hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    padding:28px 30px;
+    background:
+        linear-gradient(120deg,#0879d3,#1154a9);
+    color:#fff;
+    box-shadow:0 15px 35px rgba(20,76,136,.14);
+}
+
+.v10-news-hero::after{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    right:-100px;
+    top:-155px;
+    border-radius:50%;
+    border:70px solid rgba(255,255,255,.07);
+}
+
+.v10-news-kicker{
+    position:relative;
+    z-index:2;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.2px;
+    opacity:.9;
+}
+
+.v10-news-hero h1{
+    position:relative;
+    z-index:2;
+    margin:8px 0 7px;
+    font-size:30px;
+    line-height:1.1;
+    color:#fff;
+}
+
+.v10-news-hero p{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+    margin:0;
+    font-size:12px;
+    line-height:1.65;
+    color:rgba(255,255,255,.88);
+}
+
+.v10-news-source-line{
+    position:relative;
+    z-index:2;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:16px;
+}
+
+.v10-source-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:6px 9px;
+    border-radius:999px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.22);
+    color:#fff;
+    font-size:9px;
+    font-weight:850;
+}
+
+.v10-news-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:16px;
+}
+
+.v10-news-stat{
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:var(--card);
+    padding:15px;
+}
+
+.v10-news-stat span{
+    display:block;
+    font-size:9px;
+    font-weight:850;
+    letter-spacing:.7px;
+    color:var(--muted);
+}
+
+.v10-news-stat strong{
+    display:block;
+    margin-top:7px;
+    font-size:17px;
+    line-height:1.25;
+    color:var(--blue-900);
+}
+
+.v10-news-stat small{
+    display:block;
+    margin-top:5px;
+    color:var(--muted);
+    font-size:9px;
+}
+
+.v10-news-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:22px 0 13px;
+}
+
+.v10-news-toolbar h2{
+    margin:0;
+    font-size:19px;
+    color:var(--blue-900);
+}
+
+.v10-news-filters{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.v10-news-filter{
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink-2);
+    border-radius:999px;
+    padding:7px 11px;
+    font-size:9px;
+    font-weight:850;
+    cursor:pointer;
+}
+
+.v10-news-filter.active{
+    background:#1674d5;
+    color:#fff;
+    border-color:#1674d5;
+}
+
+.v10-news-list{
+    display:grid;
+    gap:12px;
+}
+
+.v10-news-card{
+    display:grid;
+    grid-template-columns:120px 1fr auto;
+    align-items:center;
+    gap:17px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    padding:17px;
+    box-shadow:0 4px 15px rgba(11,45,85,.04);
+}
+
+.v10-news-date{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-height:80px;
+    border-right:1px solid var(--line);
+}
+
+.v10-news-date strong{
+    font-size:20px;
+    color:#1674d5;
+}
+
+.v10-news-date span{
+    margin-top:3px;
+    font-size:9px;
+    font-weight:850;
+    letter-spacing:.7px;
+    color:var(--muted);
+}
+
+.v10-news-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    width:max-content;
+    margin-bottom:7px;
+    padding:5px 8px;
+    border-radius:999px;
+    background:#edf8f2;
+    border:1px solid #cce7d6;
+    color:#27724d;
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:.8px;
+}
+
+.v10-news-badge::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#2baa6b;
+}
+
+.v10-news-content h3{
+    margin:0;
+    font-size:15px;
+    color:var(--blue-900);
+}
+
+.v10-news-content p{
+    margin:6px 0 0;
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.6;
+}
+
+.v10-news-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    white-space:nowrap;
+    border:1px solid #bcd5ef;
+    border-radius:9px;
+    padding:9px 11px;
+    color:#1269c2;
+    background:#f7fbff;
+    text-decoration:none;
+    font-size:9px;
+    font-weight:850;
+}
+
+.v10-news-link:hover{
+    background:#edf6ff;
+}
+
+.v10-deadline-box{
+    margin-top:22px;
+    border:1px solid #cde0f4;
+    border-radius:15px;
+    background:
+        linear-gradient(120deg,#f4faff,#fff);
+    padding:19px;
+}
+
+.v10-deadline-box h2{
+    margin:0 0 13px;
+    font-size:18px;
+    color:var(--blue-900);
+}
+
+.v10-timeline{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.v10-timeline-item{
+    position:relative;
+    border-radius:11px;
+    padding:13px;
+    background:#fff;
+    border:1px solid var(--line);
+}
+
+.v10-timeline-item span{
+    display:block;
+    font-size:9px;
+    font-weight:850;
+    color:#1674d5;
+}
+
+.v10-timeline-item strong{
+    display:block;
+    margin-top:5px;
+    font-size:12px;
+    color:var(--blue-900);
+}
+
+.v10-official-hubs{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:22px;
+}
+
+.v10-hub{
+    display:block;
+    padding:16px;
+    border:1px solid var(--line);
+    border-radius:13px;
+    background:var(--card);
+    text-decoration:none;
+}
+
+.v10-hub span{
+    display:block;
+    color:#1674d5;
+    font-size:9px;
+    font-weight:900;
+}
+
+.v10-hub strong{
+    display:block;
+    margin-top:5px;
+    color:var(--blue-900);
+    font-size:13px;
+}
+
+.v10-hub small{
+    display:block;
+    margin-top:5px;
+    color:var(--muted);
+    font-size:9px;
+    line-height:1.5;
+}
+
+.v10-news-footer-note{
+    margin-top:15px;
+    padding:11px 13px;
+    border-radius:10px;
+    background:#fff9eb;
+    border:1px solid #ecdcae;
+    color:#735c21;
+    font-size:9px;
+    line-height:1.6;
+}
+
+body.dark .v10-news-stat,
+body.dark .v10-news-card,
+body.dark .v10-timeline-item,
+body.dark .v10-hub{
+    background:#0d294b;
+    border-color:#294a6e;
+}
+
+body.dark .v10-news-stat strong,
+body.dark .v10-news-toolbar h2,
+body.dark .v10-news-content h3,
+body.dark .v10-deadline-box h2,
+body.dark .v10-timeline-item strong,
+body.dark .v10-hub strong{
+    color:#edf6ff;
+}
+
+body.dark .v10-deadline-box{
+    background:#0c2646;
+    border-color:#294a6e;
+}
+
+body.dark .v10-news-filter{
+    background:#0d294b;
+    border-color:#315478;
+    color:#dcecff;
+}
+
+body.dark .v10-news-filter.active{
+    background:#2584e5;
+}
+
+body.dark .v10-news-link{
+    background:#102f55;
+    border-color:#365d86;
+    color:#8bc3ff;
+}
+
+body.dark .v10-news-footer-note{
+    background:#3a321c;
+    border-color:#5d522d;
+    color:#eadba5;
+}
+
+@media(max-width:900px){
+
+    .v10-news-summary,
+    .v10-timeline{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .v10-official-hubs{
+        grid-template-columns:1fr;
+    }
+
+    .v10-news-card{
+        grid-template-columns:1fr;
+    }
+
+    .v10-news-date{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+        min-height:auto;
+        padding-bottom:10px;
+    }
+}
+
+@media(max-width:600px){
+
+    .v10-news-summary,
+    .v10-timeline{
+        grid-template-columns:1fr;
+    }
+
+    .v10-news-hero{
+        padding:22px 18px;
+    }
+
+    .v10-news-hero h1{
+        font-size:25px;
+    }
+}
+
+</style>
+<style id="chico-v10-municipios-ticker-style">
+
+/* ==========================================================
+   FAIXA DE ALERTAS — HOME
+   ========================================================== */
+
+.chico-urgent-ticker{
+    display:flex;
+    align-items:stretch;
+    width:100%;
+    min-height:42px;
+    margin-bottom:15px;
+    overflow:hidden;
+    border:1px solid #cbdff3;
+    border-radius:11px;
+    background:#fff;
+    box-shadow:0 4px 14px rgba(11,47,86,.05);
+}
+
+.chico-ticker-label{
+    position:relative;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    flex:0 0 auto;
+    padding:0 15px;
+    background:#0a5fb7;
+    color:#fff;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+.chico-ticker-label::after{
+    content:"";
+    width:7px;
+    height:7px;
+    margin-left:8px;
+    border-radius:50%;
+    background:#70d5ff;
+    box-shadow:0 0 0 4px rgba(112,213,255,.17);
+}
+
+.chico-ticker-window{
+    flex:1;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+}
+
+.chico-ticker-track{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    white-space:nowrap;
+    animation:chicoTickerMove 38s linear infinite;
+}
+
+.chico-urgent-ticker:hover .chico-ticker-track{
+    animation-play-state:paused;
+}
+
+.chico-ticker-item{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:0 28px;
+    color:#314861;
+    font-size:10px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+.chico-ticker-item strong{
+    color:#0769cb;
+}
+
+.chico-ticker-item::after{
+    content:"•";
+    margin-left:25px;
+    color:#82a8cd;
+}
+
+.chico-ticker-urgent{
+    display:inline-flex;
+    align-items:center;
+    padding:3px 6px;
+    border-radius:999px;
+    background:#fff0e8;
+    border:1px solid #f1cdbd;
+    color:#ad4e23;
+    font-size:8px;
+    font-weight:900;
+}
+
+@keyframes chicoTickerMove{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
+/* ==========================================================
+   MUNICÍPIOS DO CEARÁ
+   ========================================================== */
+
+.v10-municipio-heading{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+    margin:24px 0 12px;
+}
+
+.v10-municipio-heading h2{
+    margin:0;
+    font-size:19px;
+    color:var(--blue-900);
+}
+
+.v10-municipio-heading p{
+    margin:3px 0 0;
+    font-size:9px;
+    color:var(--muted);
+}
+
+.v10-municipio-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.v10-municipio-card{
+    display:flex;
+    flex-direction:column;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:var(--card);
+    padding:16px;
+}
+
+.v10-municipio-top{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    align-items:flex-start;
+}
+
+.v10-municipio-place{
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.9px;
+    color:#1471d1;
+}
+
+.v10-municipio-status{
+    padding:5px 8px;
+    border-radius:999px;
+    background:#edf8f2;
+    border:1px solid #cce8d8;
+    color:#26744e;
+    font-size:8px;
+    font-weight:900;
+}
+
+.v10-municipio-card h3{
+    margin:8px 0 5px;
+    font-size:14px;
+    color:var(--blue-900);
+}
+
+.v10-municipio-card p{
+    flex:1;
+    margin:0;
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.6;
+}
+
+.v10-municipio-meta{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.v10-municipio-meta span{
+    padding:5px 7px;
+    border-radius:7px;
+    background:#f2f7fd;
+    color:#516d8a;
+    font-size:8px;
+    font-weight:800;
+}
+
+.v10-municipio-link{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:max-content;
+    margin-top:13px;
+    padding:8px 10px;
+    border-radius:8px;
+    border:1px solid #bfd7ee;
+    background:#f8fbff;
+    color:#1267bd;
+    text-decoration:none;
+    font-size:9px;
+    font-weight:850;
+}
+
+body.dark .chico-urgent-ticker{
+    background:#0d294b;
+    border-color:#294d73;
+}
+
+body.dark .chico-ticker-item{
+    color:#d7e7f8;
+}
+
+body.dark .v10-municipio-card{
+    background:#0d294b;
+    border-color:#294a6e;
+}
+
+body.dark .v10-municipio-card h3,
+body.dark .v10-municipio-heading h2{
+    color:#edf6ff;
+}
+
+body.dark .v10-municipio-meta span{
+    background:#16385e;
+    color:#b9cee5;
+}
+
+@media(max-width:800px){
+
+    .chico-ticker-label{
+        padding:0 10px;
+    }
+
+    .v10-municipio-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    .chico-ticker-track{
+        animation:none;
+    }
+
+    .chico-ticker-window{
+        overflow:auto;
+    }
+}
+
+</style>
 </head>
 <body>
 <div class="app">
@@ -2154,7 +2845,23 @@ body.dark .v10-countdown{
     <span>Histórico</span>
   </button>
 
-  <div class="navlabel">MATÉRIAS</div>
+  <!-- CHICO V10 NOTICIAS NAV START -->
+
+<div class="navlabel">RADAR</div>
+
+<button class="navbtn" data-view="noticias">
+    <svg viewBox="0 0 24 24">
+        <path d="M4 5h16v14H4z"/>
+        <path d="M7 8h5"/>
+        <path d="M7 11h5"/>
+        <path d="M7 14h10"/>
+        <path d="M14 8h3v3h-3z"/>
+    </svg>
+    <span>Notícias</span>
+</button>
+
+<!-- CHICO V10 NOTICIAS NAV END -->
+<div class="navlabel">MATÉRIAS</div>
   <button class="navbtn quick-area" data-area="Educação Brasileira: Temas Educacionais e Pedagógicos">
     <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M5 10v6c3 3 11 3 14 0v-6"/></svg>
     <span>Educação</span>
@@ -2217,9 +2924,656 @@ body.dark .v10-countdown{
     <div class="content">
       
 
+<!-- CHICO V10 NOTICIAS VIEW START -->
+
+<section id="view-noticias" class="view">
+
+<div class="v10-news-shell">
+
+    <div class="v10-news-hero">
+
+        <div class="v10-news-kicker">
+            CHICO ESTUDOS • RADAR DE CONCURSOS
+        </div>
+
+        <h1>Notícias e Atualizações</h1>
+
+        <p>
+            Acompanhamento do Concurso SEDUC-CE 2026 e de informações
+            relevantes sobre concursos e seleções públicas no Estado do Ceará.
+            Publicações oficiais têm prioridade.
+        </p>
+
+        <div class="v10-news-source-line">
+
+            <span class="v10-source-pill">
+                CEV / UECE
+            </span>
+
+            <span class="v10-source-pill">
+                SEDUC-CE
+            </span>
+
+            <span class="v10-source-pill">
+                SEPLAG-CE
+            </span>
+
+            <span class="v10-source-pill">
+                Diário Oficial
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="v10-news-summary">
+
+        <div class="v10-news-stat">
+            <span>CONCURSO PRINCIPAL</span>
+            <strong>SEDUC-CE 2026</strong>
+            <small>Professor de Filosofia</small>
+        </div>
+
+        <div class="v10-news-stat">
+            <span>VAGAS • FILOSOFIA</span>
+            <strong>80</strong>
+            <small>+ 40 no cadastro de reserva</small>
+        </div>
+
+        <div class="v10-news-stat">
+            <span>INSCRIÇÕES</span>
+            <strong>16 SET → 15 OUT</strong>
+            <small>Conforme cronograma oficial</small>
+        </div>
+
+        <div class="v10-news-stat">
+            <span>PROVA OBJETIVA</span>
+            <strong>22 NOV 2026</strong>
+            <small>Data prevista</small>
+        </div>
+
+    </div>
+
+
+    <div class="v10-news-toolbar">
+
+        <h2>Últimas atualizações</h2>
+
+        <div class="v10-news-filters">
+
+            <button
+                class="v10-news-filter active"
+                data-news-filter="all">
+                Todas
+            </button>
+
+            <button
+                class="v10-news-filter"
+                data-news-filter="seduc">
+                SEDUC-CE
+            </button>
+
+            <button
+                class="v10-news-filter"
+                data-news-filter="municipios">
+                Municípios do Ceará
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="v10-news-list">
+
+
+        <article
+            class="v10-news-card"
+            data-news-type="seduc">
+
+            <div class="v10-news-date">
+                <strong>14 AGO</strong>
+                <span>2026</span>
+            </div>
+
+            <div class="v10-news-content">
+
+                <div class="v10-news-badge">
+                    OFICIAL • CEV/UECE
+                </div>
+
+                <h3>
+                    Publicado o Edital nº 014/2026 — SEDUC/SEPLAG
+                </h3>
+
+                <p>
+                    O edital regulamenta o concurso público para cargos
+                    efetivos de Professor da rede estadual do Ceará.
+                    São 2.000 cargos ofertados no total.
+                </p>
+
+            </div>
+
+            <a
+                class="v10-news-link"
+                href="https://www.cev.uece.br/wp-content/uploads/2026/08/do20260814p01.pdf"
+                target="_blank"
+                rel="noopener noreferrer">
+                Abrir edital
+            </a>
+
+        </article>
+
+
+        <article
+            class="v10-news-card"
+            data-news-type="seduc">
+
+            <div class="v10-news-date">
+                <strong>14 AGO</strong>
+                <span>2026</span>
+            </div>
+
+            <div class="v10-news-content">
+
+                <div class="v10-news-badge">
+                    OFICIAL • CEV/UECE
+                </div>
+
+                <h3>
+                    Divulgado o cronograma da 1ª Etapa
+                </h3>
+
+                <p>
+                    O documento reúne os prazos de isenção, inscrições,
+                    divulgação do cartão, aplicação das provas objetivas,
+                    recursos e resultados.
+                </p>
+
+            </div>
+
+            <a
+                class="v10-news-link"
+                href="https://www.cev.uece.br/wp-content/uploads/2026/08/cronogramaseduc2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer">
+                Ver cronograma
+            </a>
+
+        </article>
+
+
+        <article
+            class="v10-news-card"
+            data-news-type="seduc">
+
+            <div class="v10-news-date">
+                <strong>16 SET</strong>
+                <span>2026</span>
+            </div>
+
+            <div class="v10-news-content">
+
+                <div class="v10-news-badge">
+                    PRÓXIMO PRAZO
+                </div>
+
+                <h3>
+                    Início das inscrições e pedidos de isenção
+                </h3>
+
+                <p>
+                    As inscrições começam às 8h. O período de solicitação
+                    de isenção segue até 18 de setembro às 17h.
+                </p>
+
+            </div>
+
+            <a
+                class="v10-news-link"
+                href="https://www.cev.uece.br/concursoseduc2026/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Página oficial
+            </a>
+
+        </article>
+
+
+        <article
+            class="v10-news-card"
+            data-news-type="municipios">
+
+            <div class="v10-news-date">
+                <strong>CEARÁ</strong>
+                <span>RADAR</span>
+            </div>
+
+            <div class="v10-news-content">
+
+                <div class="v10-news-badge">
+                    FONTE OFICIAL
+                </div>
+
+                <h3>
+                    Concursos e seleções organizados pela CEV/UECE
+                </h3>
+
+                <p>
+                    A área será usada pelo CHICO para acompanhar outros
+                    concursos públicos relevantes do Estado do Ceará,
+                    sempre priorizando publicações oficiais.
+                </p>
+
+            </div>
+
+            <a
+                class="v10-news-link"
+                href="https://www.cev.uece.br/"
+                target="_blank"
+                rel="noopener noreferrer">
+                Acessar CEV
+            </a>
+
+        </article>
+
+
+    </div>
+
+
+    <!-- CHICO V10 MUNICIPIOS START -->
+
+<div class="v10-municipio-heading">
+
+    <div>
+        <h2>Municípios do Ceará</h2>
+        <p>
+            Concursos e seleções com edital ou atualização confirmada
+            em fonte oficial ou banca responsável.
+        </p>
+    </div>
+
+</div>
+
+
+<div class="v10-municipio-grid">
+
+
+    <article class="v10-municipio-card">
+
+        <div class="v10-municipio-top">
+
+            <span class="v10-municipio-place">
+                URUBURETAMA • CE
+            </span>
+
+            <span class="v10-municipio-status">
+                INSCRIÇÕES
+            </span>
+
+        </div>
+
+        <h3>Concurso Público — Edital nº 01/2026</h3>
+
+        <p>
+            Concurso para níveis fundamental, médio/técnico e superior.
+            São 278 vagas imediatas, além de cadastro de reserva.
+            O prazo de inscrições foi prorrogado até 08/09/2026.
+        </p>
+
+        <div class="v10-municipio-meta">
+            <span>278 vagas imediatas</span>
+            <span>Professor</span>
+            <span>IDIB</span>
+        </div>
+
+        <a
+            class="v10-municipio-link"
+            href="https://concurso.idib.org.br/Concurso.aspx?ID=354"
+            target="_blank"
+            rel="noopener noreferrer">
+            Ver concurso
+        </a>
+
+    </article>
+
+
+    <article class="v10-municipio-card">
+
+        <div class="v10-municipio-top">
+
+            <span class="v10-municipio-place">
+                CANINDÉ • CE
+            </span>
+
+            <span class="v10-municipio-status">
+                ATUALIZADO
+            </span>
+
+        </div>
+
+        <h3>Seleção — Banco de Gestores Escolares</h3>
+
+        <p>
+            Seleção pública para Diretor Escolar e Coordenador
+            Pedagógico da rede municipal. A CEV/UECE publicou
+            em 28/08/2026 a prorrogação das inscrições e novo cronograma.
+        </p>
+
+        <div class="v10-municipio-meta">
+            <span>Educação</span>
+            <span>Gestão Escolar</span>
+            <span>CEV/UECE</span>
+        </div>
+
+        <a
+            class="v10-municipio-link"
+            href="https://www.cev.uece.br/selecao-para-banco-de-gestores-escolares-de-caninde/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Ver seleção
+        </a>
+
+    </article>
+
+
+    <article class="v10-municipio-card">
+
+        <div class="v10-municipio-top">
+
+            <span class="v10-municipio-place">
+                IPU • CE
+            </span>
+
+            <span class="v10-municipio-status">
+                EM ANDAMENTO
+            </span>
+
+        </div>
+
+        <h3>Concurso Público — Edital nº 01/2026</h3>
+
+        <p>
+            Concurso municipal com cargos de diferentes níveis,
+            incluindo vagas para professores. A banca já publicou
+            gabaritos e resultados da prova objetiva.
+        </p>
+
+        <div class="v10-municipio-meta">
+            <span>Professor</span>
+            <span>Resultado</span>
+            <span>IDIB</span>
+        </div>
+
+        <a
+            class="v10-municipio-link"
+            href="https://concurso.idib.org.br/Concurso.aspx?ID=342"
+            target="_blank"
+            rel="noopener noreferrer">
+            Ver concurso
+        </a>
+
+    </article>
+
+
+    <article class="v10-municipio-card">
+
+        <div class="v10-municipio-top">
+
+            <span class="v10-municipio-place">
+                ITAPIPOCA • CE
+            </span>
+
+            <span class="v10-municipio-status">
+                ATUALIZAÇÃO
+            </span>
+
+        </div>
+
+        <h3>Professor da Educação Básica e Nutricionista</h3>
+
+        <p>
+            Concurso municipal acompanhado pela CEV/UECE.
+            A publicação mais recente localizada foi divulgada
+            em 24/08/2026.
+        </p>
+
+        <div class="v10-municipio-meta">
+            <span>Professor</span>
+            <span>Educação</span>
+            <span>CEV/UECE</span>
+        </div>
+
+        <a
+            class="v10-municipio-link"
+            href="https://www.cev.uece.br/concurso-para-professor-e-nutricionista-da-prefeitura-de-itapipoca/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Ver concurso
+        </a>
+
+    </article>
+
+
+</div>
+
+<!-- CHICO V10 MUNICIPIOS END -->
+
+<div class="v10-deadline-box">
+
+        <h2>Próximos marcos — SEDUC-CE 2026</h2>
+
+        <div class="v10-timeline">
+
+            <div class="v10-timeline-item">
+                <span>16–18 SET</span>
+                <strong>Solicitação de isenção</strong>
+            </div>
+
+            <div class="v10-timeline-item">
+                <span>16 SET–15 OUT</span>
+                <strong>Inscrições</strong>
+            </div>
+
+            <div class="v10-timeline-item">
+                <span>17 NOV</span>
+                <strong>Cartão do Candidato</strong>
+            </div>
+
+            <div class="v10-timeline-item">
+                <span>22 NOV</span>
+                <strong>Provas Objetivas</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="v10-official-hubs">
+
+        <a
+            class="v10-hub"
+            href="https://www.cev.uece.br/concursoseduc2026/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span>PRIORIDADE MÁXIMA</span>
+            <strong>CEV/UECE — SEDUC 2026</strong>
+            <small>
+                Comunicados, editais, cronograma, inscrições e resultados.
+            </small>
+
+        </a>
+
+
+        <a
+            class="v10-hub"
+            href="https://www.seduc.ce.gov.br/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span>FONTE OFICIAL</span>
+            <strong>Secretaria da Educação</strong>
+            <small>
+                Portal institucional da SEDUC do Estado do Ceará.
+            </small>
+
+        </a>
+
+
+        <a
+            class="v10-hub"
+            href="https://www.seplag.ce.gov.br/"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span>FONTE OFICIAL</span>
+            <strong>SEPLAG Ceará</strong>
+            <small>
+                Planejamento, gestão de pessoas, concursos e atos estaduais.
+            </small>
+
+        </a>
+
+    </div>
+
+
+    <div class="v10-news-footer-note">
+
+        <strong>Importante:</strong>
+        as datas do cronograma são previstas e podem sofrer alteração.
+        O CHICO considera a página oficial da CEV/UECE como referência
+        prioritária para o Concurso SEDUC-CE 2026.
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- CHICO V10 NOTICIAS VIEW END -->
+
 <section id="view-dashboard" class="view active dashboard-v7">
 
-  <div class="course-hero-v7">
+  <!-- CHICO V10 URGENT TICKER START -->
+
+<div class="chico-urgent-ticker">
+
+    <div class="chico-ticker-label">
+        ALERTA CHICO
+    </div>
+
+    <div class="chico-ticker-window">
+
+        <div class="chico-ticker-track">
+
+            <a
+                class="chico-ticker-item"
+                href="https://concurso.idib.org.br/Concurso.aspx?ID=354"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="chico-ticker-urgent">
+                    PRAZO
+                </span>
+
+                <strong>URUBURETAMA:</strong>
+                inscrições até 08/09/2026
+
+            </a>
+
+
+            <a
+                class="chico-ticker-item"
+                href="https://www.cev.uece.br/concursoseduc2026/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="chico-ticker-urgent">
+                    SEDUC
+                </span>
+
+                <strong>SEDUC-CE 2026:</strong>
+                inscrições começam em 16/09
+
+            </a>
+
+
+            <a
+                class="chico-ticker-item"
+                href="https://www.cev.uece.br/selecao-para-banco-de-gestores-escolares-de-caninde/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="chico-ticker-urgent">
+                    NOVO
+                </span>
+
+                <strong>CANINDÉ:</strong>
+                inscrições da seleção de gestores foram prorrogadas
+
+            </a>
+
+
+            <!-- REPETIÇÃO PARA MOVIMENTO CONTÍNUO -->
+
+            <a
+                class="chico-ticker-item"
+                href="https://concurso.idib.org.br/Concurso.aspx?ID=354"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="chico-ticker-urgent">
+                    PRAZO
+                </span>
+
+                <strong>URUBURETAMA:</strong>
+                inscrições até 08/09/2026
+
+            </a>
+
+
+            <a
+                class="chico-ticker-item"
+                href="https://www.cev.uece.br/concursoseduc2026/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="chico-ticker-urgent">
+                    SEDUC
+                </span>
+
+                <strong>SEDUC-CE 2026:</strong>
+                inscrições começam em 16/09
+
+            </a>
+
+
+            <a
+                class="chico-ticker-item"
+                href="https://www.cev.uece.br/selecao-para-banco-de-gestores-escolares-de-caninde/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                <span class="chico-ticker-urgent">
+                    NOVO
+                </span>
+
+                <strong>CANINDÉ:</strong>
+                inscrições da seleção de gestores foram prorrogadas
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CHICO V10 URGENT TICKER END -->
+<div class="course-hero-v7">
     <div class="course-hero-copy">
       <span class="course-pill">CONCURSO</span>
       <h1>Preparação SEDUC-CE 2026 — Filosofia</h1>
@@ -4239,6 +5593,101 @@ function renderUECE(){
         updateRadar,
         60000
     );
+
+})();
+
+</script>
+<script id="chico-v10-noticias-js">
+
+(function(){
+
+    function openNewsView(){
+
+        document.querySelectorAll(".view").forEach(function(view){
+            view.classList.remove("active");
+        });
+
+        document.querySelectorAll(".navbtn").forEach(function(btn){
+            btn.classList.remove("active");
+        });
+
+        const view =
+            document.getElementById("view-noticias");
+
+        const button =
+            document.querySelector(
+                '.navbtn[data-view="noticias"]'
+            );
+
+        if(view){
+            view.classList.add("active");
+        }
+
+        if(button){
+            button.classList.add("active");
+        }
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+    }
+
+
+    const newsButton =
+        document.querySelector(
+            '.navbtn[data-view="noticias"]'
+        );
+
+    if(newsButton){
+
+        newsButton.addEventListener(
+            "click",
+            function(){
+                openNewsView();
+            }
+        );
+    }
+
+
+    document
+        .querySelectorAll(".v10-news-filter")
+        .forEach(function(button){
+
+            button.addEventListener(
+                "click",
+                function(){
+
+                    document
+                        .querySelectorAll(".v10-news-filter")
+                        .forEach(function(item){
+                            item.classList.remove("active");
+                        });
+
+                    button.classList.add("active");
+
+                    const filter =
+                        button.dataset.newsFilter;
+
+                    document
+                        .querySelectorAll(".v10-news-card")
+                        .forEach(function(card){
+
+                            const type =
+                                card.dataset.newsType;
+
+                            const show =
+                                filter === "all" ||
+                                type === filter;
+
+                            card.style.display =
+                                show ? "" : "none";
+                        });
+
+                }
+            );
+
+        });
 
 })();
 
