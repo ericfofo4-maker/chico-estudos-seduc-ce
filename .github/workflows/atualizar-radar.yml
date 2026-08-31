@@ -24,6 +24,7 @@ jobs:
         shell: pwsh
         run: |
           ./scripts/atualizar-radar.ps1
+          ./scripts/monitor-uruburetama.ps1
 
       - name: Verificar alteracoes
         shell: pwsh
