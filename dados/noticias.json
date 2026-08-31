@@ -1,0 +1,90 @@
+{
+  "versao": 1,
+  "atualizado_em": "2026-08-31",
+  "concurso_principal": "SEDUC-CE 2026",
+  "noticias": [
+    {
+      "id": "seduc-edital-014-2026",
+      "tipo": "seduc",
+      "titulo": "Edital nº 014/2026 — SEDUC/SEPLAG",
+      "resumo": "Concurso público para cargos efetivos de Professor da rede estadual do Ceará.",
+      "data": "2026-08-14",
+      "situacao": "OFICIAL",
+      "fonte": "CEV/UECE",
+      "url": "https://www.cev.uece.br/concursoseduc2026/",
+      "urgente": false,
+      "ativo": true
+    },
+    {
+      "id": "seduc-inscricoes-2026",
+      "tipo": "seduc",
+      "titulo": "Inscrições da SEDUC-CE 2026",
+      "resumo": "Inscrições previstas de 16 de setembro a 15 de outubro de 2026.",
+      "data": "2026-09-16",
+      "situacao": "PRÓXIMO PRAZO",
+      "fonte": "CEV/UECE",
+      "url": "https://www.cev.uece.br/concursoseduc2026/",
+      "urgente": true,
+      "ativo": true
+    },
+    {
+      "id": "uruburetama-2026",
+      "tipo": "municipio",
+      "municipio": "Uruburetama",
+      "uf": "CE",
+      "titulo": "Concurso Público — Edital nº 01/2026",
+      "resumo": "278 vagas imediatas mais cadastro de reserva. Inscrições até 08/09/2026.",
+      "prazo": "2026-09-08",
+      "situacao": "INSCRIÇÕES",
+      "banca": "IDIB",
+      "fonte": "IDIB",
+      "url": "https://concurso.idib.org.br/Concurso.aspx?ID=354",
+      "urgente": true,
+      "ativo": true
+    },
+    {
+      "id": "caninde-gestores-2026",
+      "tipo": "municipio",
+      "municipio": "Canindé",
+      "uf": "CE",
+      "titulo": "Seleção — Banco de Gestores Escolares",
+      "resumo": "Prorrogação das inscrições publicada pela CEV/UECE em 28/08/2026.",
+      "data": "2026-08-28",
+      "situacao": "ATUALIZADO",
+      "banca": "CEV/UECE",
+      "fonte": "CEV/UECE",
+      "url": "https://www.cev.uece.br/selecao-para-banco-de-gestores-escolares-de-caninde/",
+      "urgente": true,
+      "ativo": true
+    },
+    {
+      "id": "ipu-2026",
+      "tipo": "municipio",
+      "municipio": "Ipu",
+      "uf": "CE",
+      "titulo": "Concurso Público — Edital nº 01/2026",
+      "resumo": "Concurso municipal com vagas para Professor e outros cargos, atualmente com documentos e resultados publicados.",
+      "situacao": "EM ANDAMENTO",
+      "banca": "IDIB",
+      "fonte": "IDIB",
+      "url": "https://concurso.idib.org.br/Concurso.aspx?ID=342",
+      "urgente": false,
+      "ativo": true
+    },
+    {
+      "id": "itapipoca-professor-2026",
+      "tipo": "municipio",
+      "municipio": "Itapipoca",
+      "uf": "CE",
+      "titulo": "Professor da Educação Básica e Nutricionista",
+      "resumo": "Concurso municipal acompanhado pela CEV/UECE, com atualização publicada em 24/08/2026.",
+      "data": "2026-08-24",
+      "situacao": "ATUALIZAÇÃO",
+      "banca": "CEV/UECE",
+      "fonte": "CEV/UECE",
+      "url": "https://www.cev.uece.br/concurso-para-professor-e-nutricionista-da-prefeitura-de-itapipoca/",
+      "urgente": false,
+      "ativo": true
+    }
+  ]
+}
