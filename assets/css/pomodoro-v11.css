@@ -1,0 +1,1356 @@
+/* ==========================================================
+   CHICO ESTUDOS — POMODORO V11
+   Widget global, isolado por #chicoPomodoro
+   ========================================================== */
+
+#chicoPomodoro{
+    --pomo-navy:#05284d;
+    --pomo-navy-2:#073d70;
+    --pomo-blue:#0877d1;
+    --pomo-blue-2:#1693e3;
+    --pomo-cyan:#28c2df;
+    --pomo-white:#ffffff;
+    --pomo-soft:#f4faff;
+    --pomo-border:#c5deef;
+    --pomo-text:#0b3157;
+    --pomo-muted:#6d8297;
+
+    position:fixed;
+    right:24px;
+    bottom:24px;
+    z-index:99990;
+
+    font-family:inherit;
+}
+
+
+/* ==========================================================
+   BOTÃO FLUTUANTE
+   ========================================================== */
+
+#chicoPomodoro .pomo-fab{
+    width:62px;
+    height:62px;
+
+    display:grid;
+    place-items:center;
+
+    border:1px solid rgba(89,196,230,.58);
+    border-radius:20px;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            rgba(67,210,237,.30),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            #062b52,
+            #0877d1
+        );
+
+    color:#fff;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 15px 34px rgba(3,44,81,.28),
+        inset 0 1px 0 rgba(255,255,255,.16);
+
+    transition:
+        transform .18s ease,
+        box-shadow .18s ease;
+}
+
+
+#chicoPomodoro .pomo-fab:hover{
+    transform:translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 19px 38px rgba(3,44,81,.34);
+}
+
+
+#chicoPomodoro .pomo-fab svg{
+    width:28px;
+    height:28px;
+}
+
+
+#chicoPomodoro .pomo-fab-running{
+    position:absolute;
+
+    right:-3px;
+    top:-3px;
+
+    width:14px;
+    height:14px;
+
+    border:3px solid #fff;
+    border-radius:50%;
+
+    background:#2ac5df;
+
+    box-shadow:
+        0 0 0 3px rgba(42,197,223,.20);
+}
+
+
+/* ==========================================================
+   PAINEL
+   ========================================================== */
+
+#chicoPomodoro .pomo-panel{
+    position:absolute;
+
+    right:0;
+    bottom:76px;
+
+    width:370px;
+    max-height:min(720px, calc(100vh - 120px));
+
+    overflow:auto;
+
+    border:
+        1px solid rgba(62,150,204,.55);
+
+    border-radius:
+        22px;
+
+    background:
+        #fff;
+
+    box-shadow:
+        0 28px 70px rgba(4,48,87,.28);
+
+    opacity:0;
+    visibility:hidden;
+    transform:
+        translateY(14px)
+        scale(.975);
+
+    transform-origin:
+        bottom right;
+
+    transition:
+        opacity .19s ease,
+        visibility .19s ease,
+        transform .19s ease;
+}
+
+
+#chicoPomodoro.open .pomo-panel{
+    opacity:1;
+    visibility:visible;
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* ==========================================================
+   CABEÇALHO
+   ========================================================== */
+
+#chicoPomodoro .pomo-header{
+    position:relative;
+    overflow:hidden;
+
+    padding:
+        18px 20px 20px;
+
+    border-radius:
+        21px 21px 0 0;
+
+    background:
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(55,203,233,.26),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            #05274b 0%,
+            #074d88 60%,
+            #0877cf 100%
+        );
+
+    color:#fff;
+}
+
+
+#chicoPomodoro .pomo-header::after{
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    right:-70px;
+    top:-100px;
+
+    border:
+        28px solid rgba(255,255,255,.035);
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+
+#chicoPomodoro .pomo-kicker{
+    position:relative;
+    z-index:2;
+
+    display:inline-flex;
+
+    padding:
+        5px 9px;
+
+    border:
+        1px solid rgba(86,213,239,.38);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(34,190,224,.12);
+
+    color:
+        #79e5f7;
+
+    font-size:
+        10px;
+
+    font-weight:
+        1000;
+
+    letter-spacing:
+        .13em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#chicoPomodoro .pomo-title-row{
+    position:relative;
+    z-index:2;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-top:
+        10px;
+}
+
+
+#chicoPomodoro .pomo-title{
+    margin:0;
+
+    color:#fff;
+
+    font-size:
+        25px;
+
+    line-height:
+        1;
+
+    font-weight:
+        1000;
+
+    letter-spacing:
+        -.035em;
+}
+
+
+#chicoPomodoro .pomo-subtitle{
+    position:relative;
+    z-index:2;
+
+    margin:
+        7px 0 0;
+
+    color:
+        #cfe9f8;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.45;
+}
+
+
+#chicoPomodoro .pomo-close{
+    position:relative;
+    z-index:5;
+
+    width:34px;
+    height:34px;
+
+    display:grid;
+    place-items:center;
+
+    border:
+        1px solid rgba(255,255,255,.20);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:
+        20px;
+}
+
+
+/* ==========================================================
+   CORPO
+   ========================================================== */
+
+#chicoPomodoro .pomo-body{
+    padding:
+        18px;
+}
+
+
+/* ==========================================================
+   MODOS
+   ========================================================== */
+
+#chicoPomodoro .pomo-modes{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        6px;
+
+    padding:
+        5px;
+
+    border:
+        1px solid #d5e6f2;
+
+    border-radius:
+        12px;
+
+    background:
+        #edf7fd;
+}
+
+
+#chicoPomodoro .pomo-mode{
+    padding:
+        9px 6px;
+
+    border:
+        0;
+
+    border-radius:
+        8px;
+
+    background:
+        transparent;
+
+    color:
+        #55738c;
+
+    cursor:pointer;
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    transition:
+        background .15s ease,
+        color .15s ease,
+        box-shadow .15s ease;
+}
+
+
+#chicoPomodoro .pomo-mode.active{
+    background:
+        linear-gradient(
+            135deg,
+            #0876d0,
+            #1690e1
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 5px 12px rgba(7,109,190,.18);
+}
+
+
+/* ==========================================================
+   TIMER CIRCULAR
+   ========================================================== */
+
+#chicoPomodoro .pomo-clock-zone{
+    display:grid;
+    place-items:center;
+
+    padding:
+        20px 0 17px;
+}
+
+
+#chicoPomodoro .pomo-ring{
+    --pomo-progress:0deg;
+
+    width:206px;
+    height:206px;
+
+    position:relative;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        conic-gradient(
+            #28bedf 0deg,
+            #0878d2 var(--pomo-progress),
+            #dfedf6 var(--pomo-progress),
+            #dfedf6 360deg
+        );
+
+    box-shadow:
+        0 14px 35px rgba(5,83,138,.13);
+}
+
+
+#chicoPomodoro .pomo-ring::before{
+    content:"";
+
+    position:absolute;
+
+    inset:
+        11px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle at 42% 30%,
+            #ffffff,
+            #f6fbff
+        );
+
+    box-shadow:
+        inset 0 0 0 1px #d5e6f2;
+}
+
+
+#chicoPomodoro .pomo-clock{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+}
+
+
+#chicoPomodoro .pomo-time{
+    color:
+        #082e52;
+
+    font-size:
+        47px;
+
+    line-height:
+        .95;
+
+    font-weight:
+        1000;
+
+    letter-spacing:
+        -.055em;
+
+    font-variant-numeric:
+        tabular-nums;
+}
+
+
+#chicoPomodoro .pomo-clock-label{
+    margin-top:
+        8px;
+
+    color:
+        #6d879c;
+
+    font-size:
+        10px;
+
+    font-weight:
+        1000;
+
+    letter-spacing:
+        .13em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* ==========================================================
+   CONTROLES
+   ========================================================== */
+
+#chicoPomodoro .pomo-controls{
+    display:grid;
+
+    grid-template-columns:
+        1fr 46px 46px;
+
+    gap:
+        8px;
+}
+
+
+#chicoPomodoro .pomo-main-btn{
+    min-height:
+        46px;
+
+    border:0;
+
+    border-radius:
+        11px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0876d0,
+            #1590e1
+        );
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:
+        13px;
+
+    font-weight:
+        1000;
+
+    box-shadow:
+        0 8px 19px rgba(8,102,181,.19);
+}
+
+
+#chicoPomodoro .pomo-icon-btn{
+    display:grid;
+    place-items:center;
+
+    border:
+        1px solid #c4deef;
+
+    border-radius:
+        11px;
+
+    background:
+        #f5fbff;
+
+    color:
+        #1769a4;
+
+    cursor:pointer;
+
+    font-size:
+        18px;
+
+    font-weight:
+        900;
+}
+
+
+#chicoPomodoro button{
+    transition:
+        transform .14s ease,
+        filter .14s ease;
+}
+
+
+#chicoPomodoro button:hover{
+    filter:
+        brightness(1.025);
+}
+
+
+#chicoPomodoro button:active{
+    transform:
+        scale(.97);
+}
+
+
+/* ==========================================================
+   SESSÕES
+   ========================================================== */
+
+#chicoPomodoro .pomo-session-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:
+        12px;
+
+    margin-top:
+        15px;
+
+    padding:
+        12px 13px;
+
+    border:
+        1px solid #cae0ef;
+
+    border-radius:
+        12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcff,
+            #eef8ff
+        );
+}
+
+
+#chicoPomodoro .pomo-session-label{
+    color:
+        #6a8297;
+
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .09em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#chicoPomodoro .pomo-session-count{
+    margin-top:
+        2px;
+
+    color:
+        #0a3157;
+
+    font-size:
+        18px;
+
+    font-weight:
+        1000;
+}
+
+
+#chicoPomodoro .pomo-tomatoes{
+    display:flex;
+    gap:
+        4px;
+}
+
+
+#chicoPomodoro .pomo-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:
+        #d2e5f2;
+}
+
+
+#chicoPomodoro .pomo-dot.done{
+    background:
+        #20b4d4;
+
+    box-shadow:
+        0 0 0 3px rgba(32,180,212,.11);
+}
+
+
+/* ==========================================================
+   PRESETS
+   ========================================================== */
+
+#chicoPomodoro .pomo-section-title{
+    margin:
+        17px 0 8px;
+
+    color:
+        #517089;
+
+    font-size:
+        10px;
+
+    font-weight:
+        1000;
+
+    letter-spacing:
+        .11em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#chicoPomodoro .pomo-presets{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:
+        7px;
+}
+
+
+#chicoPomodoro .pomo-preset{
+    padding:
+        9px 6px;
+
+    border:
+        1px solid #c8dfef;
+
+    border-radius:
+        9px;
+
+    background:
+        #f6fbff;
+
+    color:
+        #236a9e;
+
+    cursor:pointer;
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+}
+
+
+#chicoPomodoro .pomo-preset.active{
+    border-color:
+        #65bde8;
+
+    background:
+        #e9f7ff;
+
+    color:
+        #0873c9;
+}
+
+
+/* ==========================================================
+   CONFIGURAÇÕES
+   ========================================================== */
+
+#chicoPomodoro .pomo-settings{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        8px;
+
+    margin-top:
+        9px;
+}
+
+
+#chicoPomodoro .pomo-field{
+    padding:
+        9px;
+
+    border:
+        1px solid #d1e3ef;
+
+    border-radius:
+        10px;
+
+    background:
+        #f9fcff;
+}
+
+
+#chicoPomodoro .pomo-field label{
+    display:block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #647f95;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .07em;
+
+    text-transform:
+        uppercase;
+}
+
+
+#chicoPomodoro .pomo-field input[type="number"]{
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:
+        7px 8px;
+
+    border:
+        1px solid #bed9eb;
+
+    border-radius:
+        7px;
+
+    background:#fff;
+
+    color:
+        #123a5d;
+
+    font-weight:
+        900;
+
+    outline:none;
+}
+
+
+#chicoPomodoro .pomo-toggles{
+    display:grid;
+
+    gap:
+        7px;
+
+    margin-top:
+        10px;
+}
+
+
+#chicoPomodoro .pomo-toggle-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:
+        12px;
+
+    color:
+        #456984;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+}
+
+
+#chicoPomodoro .pomo-toggle-row input{
+    accent-color:
+        #0878d1;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+#chicoPomodoro .pomo-footer{
+    margin-top:
+        14px;
+
+    padding-top:
+        12px;
+
+    border-top:
+        1px solid #e0ecf4;
+
+    color:
+        #8195a7;
+
+    font-size:
+        9px;
+
+    line-height:
+        1.45;
+
+    text-align:center;
+}
+
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body.dark #chicoPomodoro .pomo-panel{
+    border-color:
+        #2d5d7f;
+
+    background:
+        #09243e;
+}
+
+
+body.dark #chicoPomodoro .pomo-body{
+    color:
+        #eaf6ff;
+}
+
+
+body.dark #chicoPomodoro .pomo-modes,
+body.dark #chicoPomodoro .pomo-session-card,
+body.dark #chicoPomodoro .pomo-field,
+body.dark #chicoPomodoro .pomo-preset,
+body.dark #chicoPomodoro .pomo-icon-btn{
+    border-color:
+        #2d5878;
+
+    background:
+        #0d2c49;
+
+    color:
+        #dceefa;
+}
+
+
+body.dark #chicoPomodoro .pomo-ring::before{
+    background:
+        #09243e;
+
+    box-shadow:
+        inset 0 0 0 1px #2d5878;
+}
+
+
+body.dark #chicoPomodoro .pomo-time,
+body.dark #chicoPomodoro .pomo-session-count{
+    color:
+        #f4fbff;
+}
+
+
+body.dark #chicoPomodoro .pomo-field input[type="number"]{
+    border-color:
+        #315e7e;
+
+    background:
+        #071f36;
+
+    color:
+        #eef8ff;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:520px){
+
+    #chicoPomodoro{
+        right:
+            14px;
+
+        bottom:
+            14px;
+    }
+
+    #chicoPomodoro .pomo-panel{
+        position:fixed;
+
+        left:
+            10px;
+
+        right:
+            10px;
+
+        bottom:
+            86px;
+
+        width:
+            auto;
+
+        max-height:
+            calc(100vh - 105px);
+    }
+
+    #chicoPomodoro .pomo-fab{
+        width:
+            57px;
+
+        height:
+            57px;
+
+        border-radius:
+            18px;
+    }
+
+    #chicoPomodoro .pomo-ring{
+        width:
+            185px;
+
+        height:
+            185px;
+    }
+
+    #chicoPomodoro .pomo-time{
+        font-size:
+            42px;
+    }
+
+}
+
+
+/* CHICO POMODORO V11.1 START */
+
+/* ==========================================================
+   PAINEL MAIS COMPACTO
+   ========================================================== */
+
+#chicoPomodoro .pomo-panel{
+    width:372px !important;
+    max-height:calc(100vh - 105px) !important;
+}
+
+#chicoPomodoro .pomo-header{
+    padding:14px 17px 15px !important;
+}
+
+#chicoPomodoro .pomo-title{
+    font-size:23px !important;
+}
+
+#chicoPomodoro .pomo-subtitle{
+    margin-top:5px !important;
+    font-size:11px !important;
+}
+
+#chicoPomodoro .pomo-body{
+    padding:14px !important;
+}
+
+#chicoPomodoro .pomo-clock-zone{
+    padding:13px 0 !important;
+}
+
+#chicoPomodoro .pomo-ring{
+    width:172px !important;
+    height:172px !important;
+}
+
+#chicoPomodoro .pomo-ring::before{
+    inset:9px !important;
+}
+
+#chicoPomodoro .pomo-time{
+    font-size:40px !important;
+}
+
+#chicoPomodoro .pomo-controls{
+    grid-template-columns:1fr 43px 43px !important;
+}
+
+#chicoPomodoro .pomo-main-btn{
+    min-height:43px !important;
+}
+
+#chicoPomodoro .pomo-section-title{
+    margin:13px 0 7px !important;
+}
+
+
+/* ==========================================================
+   MATÉRIA DE ESTUDO
+   ========================================================== */
+
+#chicoPomodoro .pomo-subject-box{
+    margin-top:10px;
+    padding:10px;
+
+    border:1px solid #c7e0f0;
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fcff,
+            #eef8ff
+        );
+}
+
+#chicoPomodoro .pomo-subject-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:8px;
+
+    margin-bottom:6px;
+}
+
+#chicoPomodoro .pomo-subject-label{
+    color:#47708f;
+
+    font-size:9px;
+    font-weight:1000;
+
+    letter-spacing:.11em;
+    text-transform:uppercase;
+}
+
+#chicoPomodoro .pomo-subject-required{
+    padding:3px 6px;
+
+    border-radius:999px;
+
+    background:#e6f7fd;
+    color:#0e86b6;
+
+    font-size:8px;
+    font-weight:1000;
+
+    letter-spacing:.06em;
+}
+
+#chicoPomodoro #pomoSubject{
+    width:100%;
+    min-height:39px;
+
+    padding:0 10px;
+
+    border:1px solid #b9d9ec;
+    border-radius:9px;
+
+    background:#fff;
+    color:#123c60;
+
+    font-family:inherit;
+    font-size:12px;
+    font-weight:900;
+
+    outline:none;
+
+    cursor:pointer;
+}
+
+#chicoPomodoro #pomoSubject:focus{
+    border-color:#28a8dd;
+
+    box-shadow:
+        0 0 0 3px rgba(40,168,221,.11);
+}
+
+#chicoPomodoro #pomoSubject:disabled{
+    opacity:.72;
+    cursor:not-allowed;
+}
+
+
+/* ==========================================================
+   AVISO DE MATÉRIA
+   ========================================================== */
+
+#chicoPomodoro .pomo-subject-warning{
+    display:none;
+
+    margin-top:6px;
+
+    color:#b14d5d;
+
+    font-size:10px;
+    font-weight:800;
+}
+
+#chicoPomodoro .pomo-subject-warning.show{
+    display:block;
+}
+
+
+/* ==========================================================
+   TEMPO POR MATÉRIA
+   ========================================================== */
+
+#chicoPomodoro .pomo-study-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+
+    margin-top:10px;
+}
+
+#chicoPomodoro .pomo-study-stat{
+    padding:9px 10px;
+
+    border:1px solid #cce1ef;
+    border-radius:10px;
+
+    background:#f8fcff;
+}
+
+#chicoPomodoro .pomo-study-stat-label{
+    color:#718a9d;
+
+    font-size:8px;
+    font-weight:1000;
+
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+#chicoPomodoro .pomo-study-stat-value{
+    margin-top:3px;
+
+    color:#0b345a;
+
+    font-size:14px;
+    font-weight:1000;
+}
+
+
+/* ==========================================================
+   FOCO DE HOJE MAIS COMPACTO
+   ========================================================== */
+
+#chicoPomodoro .pomo-session-card{
+    margin-top:9px !important;
+    padding:9px 11px !important;
+}
+
+
+/* ==========================================================
+   PERSONALIZAÇÃO RECOLHÍVEL
+   ========================================================== */
+
+#chicoPomodoro .pomo-advanced{
+    margin-top:10px;
+
+    border:1px solid #d1e4f0;
+    border-radius:10px;
+
+    background:#f9fcff;
+
+    overflow:hidden;
+}
+
+#chicoPomodoro .pomo-advanced summary{
+    padding:9px 10px;
+
+    color:#426985;
+
+    cursor:pointer;
+
+    font-size:10px;
+    font-weight:1000;
+
+    letter-spacing:.06em;
+
+    list-style:none;
+}
+
+#chicoPomodoro .pomo-advanced summary::-webkit-details-marker{
+    display:none;
+}
+
+#chicoPomodoro .pomo-advanced summary::after{
+    content:"+";
+
+    float:right;
+
+    color:#0876cd;
+
+    font-size:15px;
+}
+
+#chicoPomodoro .pomo-advanced[open] summary::after{
+    content:"−";
+}
+
+#chicoPomodoro .pomo-advanced-content{
+    padding:0 9px 9px;
+}
+
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body.dark #chicoPomodoro .pomo-subject-box,
+body.dark #chicoPomodoro .pomo-study-stat,
+body.dark #chicoPomodoro .pomo-advanced{
+    background:#0d2c49;
+    border-color:#2d5878;
+}
+
+body.dark #chicoPomodoro #pomoSubject{
+    background:#071f36;
+    border-color:#315e7e;
+    color:#eef8ff;
+}
+
+body.dark #chicoPomodoro .pomo-study-stat-value{
+    color:#f1f9ff;
+}
+
+body.dark #chicoPomodoro .pomo-subject-label,
+body.dark #chicoPomodoro .pomo-study-stat-label,
+body.dark #chicoPomodoro .pomo-advanced summary{
+    color:#b8d3e5;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:520px){
+
+    #chicoPomodoro .pomo-panel{
+        width:auto !important;
+    }
+
+    #chicoPomodoro .pomo-ring{
+        width:158px !important;
+        height:158px !important;
+    }
+
+    #chicoPomodoro .pomo-time{
+        font-size:37px !important;
+    }
+
+}
+
+/* CHICO POMODORO V11.1 END */

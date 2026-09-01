@@ -1,0 +1,498 @@
+/* ==========================================================
+   CHICO V11 — HISTÓRICO POMODORO
+   Escopo exclusivo: #view-history #chicoPomodoroHistory
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory{
+    --hp-navy:#062a50;
+    --hp-blue:#0876cf;
+    --hp-blue2:#1791e2;
+    --hp-cyan:#29c1df;
+    --hp-border:#c8dfef;
+    --hp-soft:#f4faff;
+    --hp-text:#0b3157;
+    --hp-muted:#71879a;
+
+    margin-bottom:20px;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-hero{
+    position:relative;
+    overflow:hidden;
+
+    padding:20px 22px;
+
+    border:1px solid #2b8fd0;
+    border-radius:17px;
+
+    background:
+        radial-gradient(
+            circle at 90% 12%,
+            rgba(46,198,231,.24),
+            transparent 28%
+        ),
+        linear-gradient(
+            115deg,
+            #052549 0%,
+            #074b84 58%,
+            #0875ca 100%
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 15px 38px rgba(5,57,102,.16);
+}
+
+
+#view-history #chicoPomodoroHistory .hp-hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    right:-100px;
+    top:-130px;
+
+    border:42px solid rgba(255,255,255,.035);
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-kicker{
+    position:relative;
+    z-index:2;
+
+    display:inline-flex;
+
+    padding:5px 9px;
+
+    border:1px solid rgba(89,214,239,.40);
+    border-radius:999px;
+
+    background:rgba(40,193,223,.10);
+
+    color:#73e3f6;
+
+    font-size:10px;
+    font-weight:1000;
+
+    letter-spacing:.13em;
+    text-transform:uppercase;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-title{
+    position:relative;
+    z-index:2;
+
+    margin:9px 0 4px;
+
+    color:#fff;
+
+    font-size:27px;
+    line-height:1.05;
+
+    font-weight:1000;
+    letter-spacing:-.035em;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-description{
+    position:relative;
+    z-index:2;
+
+    max-width:700px;
+
+    margin:0;
+
+    color:#d5e9f7;
+
+    font-size:12px;
+    line-height:1.5;
+}
+
+
+/* ==========================================================
+   MÉTRICAS
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-metrics{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:10px;
+
+    margin-top:14px;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-metric{
+    position:relative;
+    z-index:2;
+
+    padding:12px 13px;
+
+    border:1px solid rgba(194,226,243,.25);
+    border-radius:11px;
+
+    background:rgba(255,255,255,.09);
+
+    backdrop-filter:blur(7px);
+}
+
+
+#view-history #chicoPomodoroHistory .hp-metric-label{
+    color:#bcdced;
+
+    font-size:8px;
+    font-weight:1000;
+
+    letter-spacing:.10em;
+    text-transform:uppercase;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-metric-value{
+    margin-top:4px;
+
+    color:#fff;
+
+    font-size:20px;
+    line-height:1.1;
+
+    font-weight:1000;
+}
+
+
+/* ==========================================================
+   CONTEÚDO
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-grid{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,.9fr)
+        minmax(0,1.3fr);
+
+    gap:12px;
+
+    margin-top:12px;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-card{
+    border:1px solid var(--hp-border);
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fbff
+        );
+
+    box-shadow:
+        0 9px 24px rgba(8,67,113,.065);
+}
+
+
+#view-history #chicoPomodoroHistory .hp-card-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+
+    padding:13px 15px;
+
+    border-bottom:1px solid #deebf4;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-card-kicker{
+    color:#0875cc;
+
+    font-size:8px;
+    font-weight:1000;
+
+    letter-spacing:.10em;
+    text-transform:uppercase;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-card-title{
+    margin-top:2px;
+
+    color:var(--hp-text);
+
+    font-size:15px;
+    font-weight:1000;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-period{
+    padding:4px 7px;
+
+    border:1px solid #bee1f2;
+    border-radius:999px;
+
+    background:#eef9ff;
+
+    color:#1680b6;
+
+    font-size:8px;
+    font-weight:1000;
+
+    letter-spacing:.06em;
+    text-transform:uppercase;
+}
+
+
+/* ==========================================================
+   RANKING
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-ranking{
+    display:grid;
+
+    gap:11px;
+
+    padding:14px;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-rank-row{
+    display:grid;
+
+    gap:6px;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-rank-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-subject{
+    color:#315c7c;
+
+    font-size:11px;
+    font-weight:900;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-time{
+    color:#0a578d;
+
+    font-size:11px;
+    font-weight:1000;
+
+    white-space:nowrap;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-track{
+    height:7px;
+
+    overflow:hidden;
+
+    border-radius:999px;
+
+    background:#e1edf5;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-bar{
+    height:100%;
+
+    border-radius:inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0877d1,
+            #29c1df
+        );
+}
+
+
+/* ==========================================================
+   REGISTROS
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-records{
+    display:grid;
+
+    gap:7px;
+
+    padding:12px;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-record{
+    display:grid;
+
+    grid-template-columns:
+        82px
+        minmax(0,1fr)
+        auto;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 11px;
+
+    border:1px solid #d4e5f1;
+    border-radius:10px;
+
+    background:#fbfdff;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-record-date{
+    color:#7b90a1;
+
+    font-size:9px;
+    font-weight:900;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-record-subject{
+    color:#264f70;
+
+    font-size:11px;
+    font-weight:900;
+}
+
+
+#view-history #chicoPomodoroHistory .hp-record-time{
+    color:#0873c7;
+
+    font-size:11px;
+    font-weight:1000;
+
+    white-space:nowrap;
+}
+
+
+/* ==========================================================
+   VAZIO
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-empty{
+    padding:22px 14px;
+
+    color:#7b91a3;
+
+    font-size:11px;
+    line-height:1.5;
+
+    text-align:center;
+}
+
+
+/* ==========================================================
+   OBSERVAÇÃO
+   ========================================================== */
+
+#view-history #chicoPomodoroHistory .hp-note{
+    margin-top:10px;
+
+    padding:9px 11px;
+
+    border:1px solid #cee3f0;
+    border-radius:10px;
+
+    background:#f5fbff;
+
+    color:#698399;
+
+    font-size:9px;
+    line-height:1.45;
+}
+
+
+/* ==========================================================
+   DARK
+   ========================================================== */
+
+body.dark #view-history #chicoPomodoroHistory .hp-card,
+body.dark #view-history #chicoPomodoroHistory .hp-record,
+body.dark #view-history #chicoPomodoroHistory .hp-note{
+    background:#0d2c49;
+
+    border-color:#2b5676;
+}
+
+
+body.dark #view-history #chicoPomodoroHistory .hp-card-head{
+    border-color:#2c5573;
+}
+
+
+body.dark #view-history #chicoPomodoroHistory .hp-card-title,
+body.dark #view-history #chicoPomodoroHistory .hp-record-subject,
+body.dark #view-history #chicoPomodoroHistory .hp-subject{
+    color:#eaf6ff;
+}
+
+
+body.dark #view-history #chicoPomodoroHistory .hp-record-date,
+body.dark #view-history #chicoPomodoroHistory .hp-note{
+    color:#abc4d7;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media(max-width:950px){
+
+    #view-history #chicoPomodoroHistory .hp-metrics{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    #view-history #chicoPomodoroHistory .hp-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+@media(max-width:560px){
+
+    #view-history #chicoPomodoroHistory .hp-metrics{
+        grid-template-columns:1fr 1fr;
+    }
+
+    #view-history #chicoPomodoroHistory .hp-record{
+        grid-template-columns:
+            72px
+            minmax(0,1fr);
+    }
+
+    #view-history #chicoPomodoroHistory .hp-record-time{
+        grid-column:2;
+    }
+
+}
