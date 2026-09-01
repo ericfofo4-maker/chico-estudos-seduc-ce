@@ -1,0 +1,1403 @@
+:root{
+    --chico-login-navy:#071f3d;
+    --chico-login-blue:#0e5fbe;
+    --chico-login-royal:#146fd1;
+    --chico-login-cyan:#26a9d2;
+    --chico-login-light:#f4f9ff;
+    --chico-login-border:#c8dcef;
+    --chico-login-text:#15324f;
+}
+
+html.chico-auth-locked,
+html.chico-auth-locked body{
+    overflow:hidden !important;
+}
+
+#chicoLoginOverlay{
+    position:fixed;
+    inset:0;
+    z-index:99999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:28px;
+
+    background:
+        radial-gradient(
+            circle at 78% 22%,
+            rgba(38,169,210,.25),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 18% 78%,
+            rgba(20,111,209,.24),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #061b35 0%,
+            #0b3567 52%,
+            #0e5eb0 100%
+        );
+
+    opacity:1;
+    visibility:visible;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease,
+        transform .45s ease;
+}
+
+#chicoLoginOverlay.is-leaving{
+    opacity:0;
+    visibility:hidden;
+    transform:scale(1.015);
+    pointer-events:none;
+}
+
+html.chico-auth-ok #chicoLoginOverlay{
+    pointer-events:none;
+}
+
+.chico-login-watermark{
+    position:absolute;
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-8deg);
+
+    font-size:clamp(90px,19vw,280px);
+    line-height:.8;
+
+    font-weight:1000;
+    letter-spacing:-10px;
+
+    color:rgba(255,255,255,.035);
+
+    user-select:none;
+    pointer-events:none;
+}
+
+.chico-login-shell{
+    position:relative;
+    z-index:2;
+
+    display:grid;
+    grid-template-columns:minmax(300px,1.05fr) minmax(320px,.95fr);
+
+    width:min(930px,96vw);
+    min-height:520px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:24px;
+
+    background:#fff;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.32);
+}
+
+.chico-login-brand{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    padding:48px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071f3d 0%,
+            #0b3e79 62%,
+            #0d65bd 100%
+        );
+
+    color:#fff;
+}
+
+.chico-login-brand::before{
+    content:"";
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    right:-140px;
+    bottom:-160px;
+
+    border-radius:50%;
+
+    border:48px solid rgba(255,255,255,.04);
+}
+
+.chico-login-brand::after{
+    content:"CEARÁ";
+
+    position:absolute;
+    right:-18px;
+    top:92px;
+
+    transform:rotate(90deg);
+
+    font-size:72px;
+    font-weight:1000;
+    letter-spacing:-4px;
+
+    color:rgba(255,255,255,.045);
+}
+
+.chico-login-brand-top,
+.chico-login-brand-main,
+.chico-login-brand-footer{
+    position:relative;
+    z-index:2;
+}
+
+.chico-login-government{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    padding:7px 11px;
+
+    width:max-content;
+
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.8px;
+}
+
+.chico-login-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#44c3df;
+
+    box-shadow:
+        0 0 0 5px rgba(68,195,223,.13);
+}
+
+.chico-login-mini{
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#55c8e1;
+
+    font-size:11px;
+    font-weight:1000;
+    letter-spacing:2.3px;
+}
+
+.chico-login-brand h1{
+    margin:0;
+
+    max-width:430px;
+
+    font-size:clamp(43px,5vw,67px);
+    line-height:.84;
+
+    font-weight:1000;
+    letter-spacing:-2.8px;
+
+    text-transform:uppercase;
+}
+
+.chico-login-brand h1 span{
+    display:block;
+    color:#47c0df;
+}
+
+.chico-login-brand-description{
+    max-width:390px;
+
+    margin:22px 0 0;
+
+    color:#c8d9ea;
+
+    font-size:12px;
+    line-height:1.65;
+}
+
+.chico-login-brand-footer{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:#b9cee2;
+
+    font-size:10px;
+    font-weight:800;
+}
+
+.chico-login-brand-footer::before{
+    content:"";
+    display:block;
+
+    width:32px;
+    height:2px;
+
+    background:#3db8d8;
+}
+
+.chico-login-form-side{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:48px 50px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7fbff 100%
+        );
+}
+
+.chico-login-form-side::before{
+    content:"";
+
+    position:absolute;
+    right:32px;
+    top:30px;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(38,169,210,.18) 0 4px,
+            transparent 5px
+        );
+
+    background-size:13px 13px;
+}
+
+.chico-login-access-label{
+    display:inline-block;
+
+    margin-bottom:8px;
+
+    color:#1473cb;
+
+    font-size:10px;
+    font-weight:1000;
+    letter-spacing:1.7px;
+}
+
+.chico-login-form-side h2{
+    margin:0;
+
+    color:#0a2b50;
+
+    font-size:32px;
+    line-height:1.05;
+
+    font-weight:1000;
+    letter-spacing:-1.1px;
+}
+
+.chico-login-subtitle{
+    margin:9px 0 27px;
+
+    color:#74879b;
+
+    font-size:11px;
+    line-height:1.55;
+}
+
+.chico-login-field{
+    margin-bottom:16px;
+}
+
+.chico-login-field label{
+    display:block;
+
+    margin:0 0 6px;
+
+    color:#334f6d;
+
+    font-size:10px;
+    font-weight:900;
+}
+
+.chico-login-input-wrap{
+    position:relative;
+}
+
+.chico-login-input{
+    box-sizing:border-box;
+
+    width:100%;
+    height:47px;
+
+    padding:0 14px;
+
+    border:1px solid #cbdbea;
+    border-radius:10px;
+
+    outline:none;
+
+    background:#fff;
+
+    color:#15324e;
+
+    font:inherit;
+    font-size:12px;
+    font-weight:700;
+
+    transition:
+        border-color .18s ease,
+        box-shadow .18s ease,
+        transform .18s ease;
+}
+
+.chico-login-input:focus{
+    border-color:#2583d7;
+
+    box-shadow:
+        0 0 0 4px rgba(37,131,215,.11);
+}
+
+.chico-login-password{
+    padding-right:54px;
+}
+
+#chicoTogglePassword{
+    position:absolute;
+
+    right:6px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:39px;
+    height:34px;
+
+    border:0;
+    border-radius:8px;
+
+    background:transparent;
+
+    color:#46708e;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    transition:background .15s ease;
+}
+
+#chicoTogglePassword:hover{
+    background:#edf5fc;
+}
+
+.chico-login-options{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin:2px 0 19px;
+}
+
+.chico-login-remember{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    color:#567087;
+
+    font-size:10px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.chico-login-remember input{
+    width:15px;
+    height:15px;
+
+    accent-color:#1471ce;
+}
+
+#chicoLoginSubmit{
+    width:100%;
+    height:47px;
+
+    border:0;
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0d5cb8,
+            #1679d5
+        );
+
+    color:#fff;
+
+    font:inherit;
+    font-size:11px;
+    font-weight:1000;
+    letter-spacing:.7px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 9px 22px rgba(12,93,184,.22);
+
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        opacity .16s ease;
+}
+
+#chicoLoginSubmit:hover{
+    transform:translateY(-1px);
+
+    box-shadow:
+        0 12px 26px rgba(12,93,184,.27);
+}
+
+#chicoLoginSubmit:disabled{
+    opacity:.65;
+    cursor:wait;
+}
+
+#chicoLoginMessage{
+    min-height:17px;
+
+    margin-top:11px;
+
+    color:#c33148;
+
+    font-size:9px;
+    font-weight:900;
+
+    text-align:center;
+}
+
+.chico-login-security{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+
+    margin-top:12px;
+
+    color:#8b9bae;
+
+    font-size:8px;
+    font-weight:700;
+}
+
+.chico-login-security::before{
+    content:"●";
+    color:#2ca9c8;
+    font-size:7px;
+}
+
+.chico-login-shake{
+    animation:chicoLoginShake .32s ease;
+}
+
+@keyframes chicoLoginShake{
+    0%,100%{ transform:translateX(0); }
+    25%{ transform:translateX(-7px); }
+    75%{ transform:translateX(7px); }
+}
+
+.chico-logout-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+
+    width:calc(100% - 20px);
+    min-height:36px;
+
+    margin:14px 10px 10px;
+    padding:0 12px;
+
+    border:1px solid rgba(87,157,218,.32);
+    border-radius:8px;
+
+    background:rgba(16,94,170,.08);
+
+    color:inherit;
+
+    font:inherit;
+    font-size:9px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:
+        background .15s ease,
+        transform .15s ease;
+}
+
+.chico-logout-btn:hover{
+    background:rgba(16,94,170,.15);
+    transform:translateY(-1px);
+}
+
+.chico-logout-btn.chico-logout-floating{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:5000;
+
+    width:auto;
+    min-width:76px;
+
+    margin:0;
+
+    background:#0d4078;
+    border-color:#236db1;
+    color:#fff;
+
+    box-shadow:0 8px 26px rgba(0,0,0,.16);
+}
+
+@media(max-width:760px){
+
+    #chicoLoginOverlay{
+        padding:16px;
+    }
+
+    .chico-login-shell{
+        grid-template-columns:1fr;
+        width:min(440px,96vw);
+        max-height:94vh;
+        overflow:auto;
+    }
+
+    .chico-login-brand{
+        min-height:210px;
+        padding:28px;
+    }
+
+    .chico-login-brand h1{
+        font-size:42px;
+    }
+
+    .chico-login-brand-description{
+        margin-top:14px;
+    }
+
+    .chico-login-brand-footer{
+        margin-top:28px;
+    }
+
+    .chico-login-form-side{
+        padding:32px 28px;
+    }
+}
+/* ==========================================================
+   BRASÃO DO CEARÁ - LOGIN CHICO
+   ========================================================== */
+
+.chico-login-state-logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    margin-bottom:28px;
+}
+
+.chico-login-state-logo-frame{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:76px;
+    height:76px;
+
+    border:1px solid rgba(255,255,255,.22);
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.13),
+            rgba(255,255,255,.04)
+        );
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.15),
+        0 12px 28px rgba(0,0,0,.13);
+
+    backdrop-filter:blur(5px);
+}
+
+.chico-login-state-logo-frame::after{
+    content:"";
+
+    position:absolute;
+
+    inset:-7px;
+
+    border:1px solid rgba(63,190,222,.16);
+    border-radius:23px;
+
+    pointer-events:none;
+}
+
+.chico-login-state-logo img{
+    display:block;
+
+    width:59px;
+    height:59px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 5px 8px rgba(0,0,0,.22)
+        );
+}
+
+.chico-login-state-logo-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.chico-login-state-logo-text strong{
+    color:#fff;
+
+    font-size:12px;
+    line-height:1.15;
+
+    font-weight:1000;
+    letter-spacing:.5px;
+}
+
+.chico-login-state-logo-text span{
+    margin-top:4px;
+
+    color:#59c6e1;
+
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:1.3px;
+}
+
+@media(max-width:760px){
+
+    .chico-login-state-logo{
+        margin-bottom:19px;
+    }
+
+    .chico-login-state-logo-frame{
+        width:60px;
+        height:60px;
+    }
+
+    .chico-login-state-logo img{
+        width:47px;
+        height:47px;
+    }
+}
+
+/* CHICO LOGIN IMPACTO START */
+
+/* ==========================================================
+   LOGIN — IDENTIDADE VISUAL CEARÁ
+   ========================================================== */
+
+.chico-login-brand{
+    position:relative !important;
+    overflow:hidden !important;
+
+    padding:42px 46px !important;
+
+    background:
+        radial-gradient(
+            circle at 78% 49%,
+            rgba(26,155,231,.42),
+            transparent 34%
+        ),
+        linear-gradient(
+            145deg,
+            #061f3d 0%,
+            #073b73 49%,
+            #0870c5 100%
+        ) !important;
+}
+
+
+/* REMOVE O CEARÁ VERTICAL ANTIGO */
+
+.chico-login-brand::after{
+    display:none !important;
+}
+
+
+/* CÍRCULO DECORATIVO ANTIGO */
+
+.chico-login-brand::before{
+    opacity:.28;
+}
+
+
+/* ==========================================================
+   RAIOS — IGUAL À REFERÊNCIA
+   ========================================================== */
+
+.chico-login-state-logo::before{
+    content:"";
+
+    position:absolute;
+
+    width:680px;
+    height:680px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index:-2;
+
+    background:
+        repeating-conic-gradient(
+            from -7deg,
+
+            rgba(35,163,232,.88) 0deg 4deg,
+            rgba(35,163,232,0) 4deg 13deg
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle,
+            #000 0 48%,
+            transparent 73%
+        );
+
+    mask-image:
+        radial-gradient(
+            circle,
+            #000 0 48%,
+            transparent 73%
+        );
+
+    opacity:.76;
+
+    pointer-events:none;
+}
+
+
+/* SEGUNDO BRILHO ATRÁS DO BRASÃO */
+
+.chico-login-state-logo::after{
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index:-1;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(29,153,230,.42) 0%,
+            rgba(18,103,190,.16) 45%,
+            transparent 72%
+        );
+
+    pointer-events:none;
+}
+
+
+/* ==========================================================
+   BRASÃO GRANDE
+   ========================================================== */
+
+.chico-login-state-logo{
+    position:absolute !important;
+
+    right:-105px !important;
+    top:46% !important;
+
+    transform:
+        translateY(-50%) !important;
+
+    width:500px !important;
+    height:500px !important;
+
+    margin:0 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    z-index:1 !important;
+
+    pointer-events:none !important;
+}
+
+
+.chico-login-state-logo-frame{
+    width:450px !important;
+    height:450px !important;
+
+    border:0 !important;
+    border-radius:0 !important;
+
+    background:transparent !important;
+
+    box-shadow:none !important;
+
+    backdrop-filter:none !important;
+}
+
+
+.chico-login-state-logo-frame::after{
+    display:none !important;
+}
+
+
+.chico-login-state-logo img{
+    width:415px !important;
+    height:415px !important;
+
+    object-fit:contain !important;
+
+    filter:
+        saturate(1.18)
+        contrast(1.04)
+        drop-shadow(
+            0 18px 17px rgba(0,15,32,.38)
+        ) !important;
+}
+
+
+/* TEXTO PEQUENO AO LADO DO BRASÃO NÃO É MAIS NECESSÁRIO */
+
+.chico-login-state-logo-text{
+    display:none !important;
+}
+
+
+/* ==========================================================
+   CONTEÚDO DO LADO ESQUERDO
+   ========================================================== */
+
+.chico-login-brand-top{
+    position:relative !important;
+
+    z-index:5 !important;
+}
+
+
+.chico-login-brand-main{
+    position:relative !important;
+
+    z-index:5 !important;
+
+    width:52% !important;
+
+    margin-top:28px !important;
+}
+
+
+.chico-login-brand-footer{
+    position:relative !important;
+
+    z-index:5 !important;
+
+    width:max-content;
+}
+
+
+/* TITULO */
+
+.chico-login-mini{
+    color:#55d3ef !important;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.18);
+}
+
+
+.chico-login-brand h1{
+    font-size:
+        clamp(48px,4.6vw,70px) !important;
+
+    line-height:.82 !important;
+
+    color:#ffffff !important;
+
+    text-shadow:
+        0 6px 18px rgba(0,20,45,.17);
+}
+
+
+.chico-login-brand h1 span{
+    color:#48c8ec !important;
+}
+
+
+.chico-login-brand-description{
+    color:#e2effa !important;
+
+    font-size:11px !important;
+
+    line-height:1.65 !important;
+
+    text-shadow:
+        0 2px 8px rgba(0,20,40,.18);
+}
+
+
+/* ==========================================================
+   PAINEL BRANCO
+   ========================================================== */
+
+.chico-login-form-side{
+    background:
+
+        radial-gradient(
+            circle at 86% 11%,
+            rgba(38,183,220,.11),
+            transparent 18%
+        ),
+
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7fbff 100%
+        ) !important;
+}
+
+
+.chico-login-form-side h2{
+    color:#082c54 !important;
+
+    font-weight:1000 !important;
+}
+
+
+.chico-login-access-label{
+    color:#0876d0 !important;
+}
+
+
+/* CAMPOS */
+
+.chico-login-input{
+    border-color:#c4d9ec !important;
+
+    box-shadow:
+        inset 0 1px 2px rgba(14,68,115,.025);
+}
+
+
+.chico-login-input:focus{
+    border-color:#168ce0 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(22,140,224,.13),
+        0 8px 20px rgba(18,111,190,.07) !important;
+}
+
+
+/* BOTÃO */
+
+#chicoLoginSubmit{
+    background:
+        linear-gradient(
+            90deg,
+            #0864bd 0%,
+            #1286df 100%
+        ) !important;
+
+    box-shadow:
+        0 12px 26px rgba(8,99,188,.24) !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:760px){
+
+    .chico-login-state-logo{
+        right:-80px !important;
+        top:54% !important;
+
+        width:310px !important;
+        height:310px !important;
+
+        opacity:.33;
+    }
+
+    .chico-login-state-logo-frame{
+        width:290px !important;
+        height:290px !important;
+    }
+
+    .chico-login-state-logo img{
+        width:270px !important;
+        height:270px !important;
+    }
+
+    .chico-login-state-logo::before{
+        width:440px;
+        height:440px;
+    }
+
+    .chico-login-brand-main{
+        width:78% !important;
+    }
+}
+
+/* CHICO LOGIN IMPACTO END */
+
+/* CHICO LOGIN EXATO V11 START */
+
+/* Tela baseada diretamente na arte aprovada do CHICO V11. */
+
+#chicoLoginOverlay{
+    padding:12px !important;
+    background:
+        radial-gradient(circle at 77% 48%, rgba(18,122,226,.42), transparent 38%),
+        radial-gradient(circle at 18% 50%, rgba(17,87,170,.25), transparent 37%),
+        linear-gradient(118deg,#031f52 0%,#073c86 52%,#075fd0 100%) !important;
+}
+
+.chico-login-watermark{
+    display:none !important;
+}
+
+.chico-login-shell{
+    grid-template-columns:58.7% 41.3% !important;
+    width:min(1428px,94vw,calc((100vh - 26px) * 2.01695)) !important;
+    min-height:0 !important;
+    height:auto !important;
+    aspect-ratio:1428 / 708 !important;
+    border:1px solid rgba(224,237,255,.88) !important;
+    border-radius:25px !important;
+    overflow:hidden !important;
+    background:#fff !important;
+    box-shadow:
+        0 34px 88px rgba(0,21,58,.34),
+        0 0 55px rgba(10,105,225,.13) !important;
+}
+
+/* O painel esquerdo passa a ser a própria composição aprovada. */
+.chico-login-brand{
+    position:relative !important;
+    padding:0 !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    background-image:url("../img/login-chico-v11-left.png") !important;
+    background-size:100% 100% !important;
+    background-repeat:no-repeat !important;
+    background-position:center !important;
+}
+
+.chico-login-brand::before,
+.chico-login-brand::after{
+    display:none !important;
+}
+
+.chico-login-brand > *{
+    display:none !important;
+}
+
+/* Painel funcional à direita. */
+.chico-login-form-side{
+    position:relative !important;
+    justify-content:center !important;
+    padding:7.8% 7.1% 6.8% !important;
+    background:
+        radial-gradient(circle at 85% 12%,rgba(30,176,221,.095),transparent 18%),
+        linear-gradient(180deg,#ffffff 0%,#fbfdff 74%,#f7fbff 100%) !important;
+}
+
+.chico-login-form-side::before{
+    right:8.5% !important;
+    top:7.5% !important;
+    width:70px !important;
+    height:70px !important;
+    opacity:.72 !important;
+    background-size:14px 14px !important;
+}
+
+.chico-login-access-label{
+    margin-bottom:13px !important;
+    color:#0867d8 !important;
+    font-size:12px !important;
+    line-height:1 !important;
+    font-weight:1000 !important;
+    letter-spacing:2px !important;
+}
+
+.chico-login-form-side h2{
+    margin:0 !important;
+    color:#082c60 !important;
+    font-size:clamp(34px,2.7vw,46px) !important;
+    line-height:1.03 !important;
+    font-weight:1000 !important;
+    letter-spacing:-1.8px !important;
+}
+
+.chico-login-subtitle{
+    margin:15px 0 39px !important;
+    color:#7b8da5 !important;
+    font-size:14px !important;
+    line-height:1.45 !important;
+}
+
+.chico-login-field{
+    margin-bottom:22px !important;
+}
+
+.chico-login-field label{
+    margin-bottom:8px !important;
+    color:#0d2c5a !important;
+    font-size:11px !important;
+    font-weight:1000 !important;
+}
+
+.chico-login-input{
+    height:68px !important;
+    padding:0 20px !important;
+    border:1px solid #cbdced !important;
+    border-radius:12px !important;
+    background:#fff !important;
+    color:#173b65 !important;
+    font-size:15px !important;
+    font-weight:600 !important;
+    box-shadow:inset 0 1px 2px rgba(16,60,104,.02) !important;
+}
+
+.chico-login-input:focus{
+    border-color:#1684ee !important;
+    box-shadow:
+        0 0 0 4px rgba(17,126,235,.13),
+        0 8px 24px rgba(13,95,181,.06) !important;
+}
+
+.chico-login-password{
+    padding-right:62px !important;
+}
+
+#chicoTogglePassword{
+    right:11px !important;
+    width:42px !important;
+    height:42px !important;
+    color:#245a94 !important;
+    font-size:17px !important;
+}
+
+.chico-login-options{
+    margin:1px 0 27px !important;
+}
+
+.chico-login-remember{
+    gap:10px !important;
+    color:#334e70 !important;
+    font-size:12px !important;
+    font-weight:850 !important;
+}
+
+.chico-login-remember input{
+    width:20px !important;
+    height:20px !important;
+}
+
+#chicoLoginSubmit{
+    height:67px !important;
+    border-radius:12px !important;
+    background:linear-gradient(90deg,#0864d6 0%,#076dea 100%) !important;
+    color:#fff !important;
+    font-size:14px !important;
+    font-weight:1000 !important;
+    letter-spacing:.3px !important;
+    box-shadow:0 14px 28px rgba(5,91,209,.22) !important;
+}
+
+#chicoLoginSubmit:hover{
+    transform:translateY(-2px) !important;
+    box-shadow:0 18px 34px rgba(5,91,209,.29) !important;
+}
+
+#chicoLoginMessage{
+    min-height:19px !important;
+    margin-top:11px !important;
+    font-size:10px !important;
+}
+
+.chico-login-security{
+    margin-top:16px !important;
+    color:#7e91a9 !important;
+    font-size:9px !important;
+    letter-spacing:.1px !important;
+}
+
+/* Desktop intermediário: preserva a composição sem esmagar o painel. */
+@media(max-width:1180px){
+    .chico-login-shell{
+        width:min(1080px,96vw,calc((100vh - 22px) * 1.75)) !important;
+        grid-template-columns:55% 45% !important;
+        aspect-ratio:1.75 !important;
+    }
+
+    .chico-login-brand{
+        background-size:cover !important;
+        background-position:center !important;
+    }
+
+    .chico-login-form-side{
+        padding:6.5% !important;
+    }
+
+    .chico-login-form-side h2{
+        font-size:31px !important;
+    }
+
+    .chico-login-subtitle{
+        margin-bottom:25px !important;
+        font-size:12px !important;
+    }
+
+    .chico-login-input{
+        height:54px !important;
+        font-size:13px !important;
+    }
+
+    #chicoLoginSubmit{
+        height:54px !important;
+    }
+}
+
+/* Mobile mantém autenticação funcional e usa a arte como faixa visual. */
+@media(max-width:760px){
+    #chicoLoginOverlay{
+        padding:10px !important;
+        align-items:center !important;
+        overflow:auto !important;
+    }
+
+    .chico-login-shell{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        width:min(460px,96vw) !important;
+        height:auto !important;
+        max-height:none !important;
+        aspect-ratio:auto !important;
+        border-radius:20px !important;
+    }
+
+    .chico-login-brand{
+        display:block !important;
+        min-height:270px !important;
+        background-size:cover !important;
+        background-position:center !important;
+    }
+
+    .chico-login-form-side{
+        padding:30px 25px 28px !important;
+    }
+
+    .chico-login-form-side h2{
+        font-size:31px !important;
+    }
+
+    .chico-login-subtitle{
+        margin:10px 0 24px !important;
+    }
+
+    .chico-login-input{
+        height:52px !important;
+    }
+
+    #chicoLoginSubmit{
+        height:54px !important;
+    }
+}
+
+/* CHICO LOGIN EXATO V11 END */
+/* CHICO LOGIN STABLE FIX START */
+
+/*
+   O atributo hidden precisa vencer o display:flex do overlay.
+*/
+#chicoLoginOverlay[hidden]{
+    display:none !important;
+}
+
+
+/*
+   Enquanto o login estiver aberto,
+   a página que está atrás não deve rolar.
+*/
+html.chico-auth-locked,
+html.chico-auth-locked body{
+    overflow:hidden !important;
+}
+
+
+/*
+   A arte é apenas visual.
+*/
+.chico-login-brand{
+    pointer-events:none !important;
+}
+
+
+/*
+   O formulário continua normal,
+   sem alterar posições dos seus controles.
+*/
+.chico-login-form-side,
+#chicoLoginForm,
+.chico-login-input,
+#chicoTogglePassword,
+#chicoLoginRemember,
+#chicoLoginSubmit{
+    pointer-events:auto !important;
+}
+
+/* CHICO LOGIN STABLE FIX END */

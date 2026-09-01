@@ -1,0 +1,754 @@
+/* ==========================================================
+   CHICO ESTUDOS V11
+   IDENTIDADE VISUAL GLOBAL
+   ========================================================== */
+
+:root{
+
+    --v11-navy:#052646;
+    --v11-navy-2:#073762;
+    --v11-blue:#0865bd;
+    --v11-blue-2:#1685e0;
+    --v11-cyan:#29b9dd;
+
+    --v11-bg:#edf5fc;
+    --v11-bg-soft:#f7fbff;
+
+    --v11-card:#ffffff;
+    --v11-border:#cddff0;
+
+    --v11-text:#102f50;
+    --v11-muted:#6c8299;
+
+    --v11-shadow:
+        0 12px 34px rgba(24,77,124,.10);
+
+    --v11-shadow-hover:
+        0 17px 38px rgba(19,83,143,.16);
+}
+
+
+/* ==========================================================
+   FUNDO GERAL
+   ========================================================== */
+
+body{
+    background:
+        radial-gradient(
+            circle at 88% 12%,
+            rgba(41,185,221,.09),
+            transparent 26%
+        ),
+        linear-gradient(
+            180deg,
+            #f7fbff 0%,
+            #edf5fc 100%
+        ) !important;
+
+    color:var(--v11-text);
+}
+
+
+/* ==========================================================
+   SIDEBAR
+   ========================================================== */
+
+.sidebar{
+
+    background:
+        radial-gradient(
+            circle at 75% 8%,
+            rgba(45,190,221,.19),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #073968 0%,
+            #075183 48%,
+            #06436e 100%
+        ) !important;
+
+    box-shadow:
+        8px 0 30px rgba(1,40,74,.13);
+
+}
+
+.sidebar::before{
+    content:"";
+
+    position:absolute;
+    width:350px;
+    height:350px;
+
+    left:-190px;
+    top:70px;
+
+    border-radius:50%;
+
+    border:
+        54px solid rgba(255,255,255,.025);
+
+    pointer-events:none;
+}
+
+.sidebar::after{
+    content:"CEARÁ";
+
+    position:absolute;
+
+    left:-35px;
+    bottom:140px;
+
+    transform:rotate(-90deg);
+
+    font-size:72px;
+    line-height:1;
+
+    font-weight:1000;
+    letter-spacing:-5px;
+
+    color:rgba(255,255,255,.025);
+
+    pointer-events:none;
+}
+
+
+/* ==========================================================
+   MENU
+   ========================================================== */
+
+.navbtn{
+    position:relative;
+
+    border-radius:10px !important;
+
+    transition:
+        transform .16s ease,
+        background .16s ease,
+        box-shadow .16s ease,
+        color .16s ease !important;
+}
+
+.navbtn:hover{
+    transform:translateX(3px);
+
+    background:
+        rgba(255,255,255,.08) !important;
+}
+
+.navbtn.active,
+.navbtn[aria-current="page"]{
+    background:
+        linear-gradient(
+            90deg,
+            #1689e1,
+            #399eea
+        ) !important;
+
+    box-shadow:
+        0 8px 22px rgba(5,50,91,.23) !important;
+
+    color:#fff !important;
+}
+
+.navbtn.active::before,
+.navbtn[aria-current="page"]::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:9px;
+    bottom:9px;
+
+    width:3px;
+
+    border-radius:0 4px 4px 0;
+
+    background:#6fe0f3;
+}
+
+
+/* ==========================================================
+   TOPO
+   ========================================================== */
+
+.topbar,
+.header,
+.app-header{
+    background:
+        rgba(255,255,255,.96) !important;
+
+    border-bottom:
+        1px solid #d9e7f3 !important;
+
+    box-shadow:
+        0 5px 18px rgba(30,83,129,.055);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+
+/* ==========================================================
+   CAMPO DE BUSCA
+   ========================================================== */
+
+input[type="search"]{
+    background:#f8fbfe !important;
+
+    border:
+        1px solid #cfdfed !important;
+
+    border-radius:12px !important;
+
+    transition:
+        border-color .18s ease,
+        box-shadow .18s ease !important;
+}
+
+input[type="search"]:focus{
+    border-color:#2c8bdd !important;
+
+    box-shadow:
+        0 0 0 4px rgba(44,139,221,.10) !important;
+}
+
+
+/* ==========================================================
+   CABEÇALHOS / HERO DAS PÁGINAS
+   ========================================================== */
+
+:is(
+    .page-hero,
+    .hero,
+    .section-hero,
+    .view-hero,
+    .panel-hero
+){
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1px solid #c8ddf0 !important;
+
+    border-radius:
+        18px !important;
+
+    background:
+        radial-gradient(
+            circle at 92% 25%,
+            rgba(42,181,220,.16),
+            transparent 24%
+        ),
+        linear-gradient(
+            115deg,
+            #ffffff 0%,
+            #f2f8ff 62%,
+            #e7f4ff 100%
+        ) !important;
+
+    box-shadow:
+        var(--v11-shadow) !important;
+}
+
+:is(
+    .page-hero,
+    .hero,
+    .section-hero,
+    .view-hero,
+    .panel-hero
+)::after{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    right:-100px;
+    top:-115px;
+
+    border-radius:50%;
+
+    border:
+        40px solid rgba(18,111,202,.045);
+
+    pointer-events:none;
+}
+
+
+/* ==========================================================
+   CARDS
+   ========================================================== */
+
+:is(
+    .card,
+    .stat-card,
+    .metric-card,
+    .dashboard-card,
+    .news-card,
+    .question-card,
+    .panel
+){
+    border:
+        1px solid var(--v11-border) !important;
+
+    border-radius:
+        14px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fbfdff 100%
+        ) !important;
+
+    box-shadow:
+        0 7px 22px rgba(24,76,123,.055);
+
+    transition:
+        transform .17s ease,
+        box-shadow .17s ease,
+        border-color .17s ease;
+}
+
+:is(
+    .card,
+    .stat-card,
+    .metric-card,
+    .dashboard-card,
+    .news-card
+):hover{
+    transform:translateY(-2px);
+
+    border-color:
+        #b4d5ee !important;
+
+    box-shadow:
+        var(--v11-shadow-hover);
+}
+
+
+/* ==========================================================
+   QUESTÕES
+   ========================================================== */
+
+.question{
+    position:relative;
+
+    border:
+        1px solid #cbddec !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        #fff !important;
+
+    box-shadow:
+        0 8px 27px rgba(22,73,117,.065);
+
+    overflow:hidden;
+
+    transition:
+        box-shadow .18s ease,
+        transform .18s ease;
+}
+
+.question:hover{
+    box-shadow:
+        0 13px 34px rgba(22,73,117,.10);
+}
+
+.question::before{
+    content:"";
+
+    display:block;
+
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1182d6,
+            #2dbadc,
+            transparent 72%
+        );
+}
+
+
+/* ==========================================================
+   ALTERNATIVAS
+   ========================================================== */
+
+.option,
+.answer-option,
+.question-option{
+    border-radius:
+        10px !important;
+
+    border:
+        1px solid #d7e4ef !important;
+
+    transition:
+        background .15s ease,
+        border-color .15s ease,
+        transform .15s ease,
+        box-shadow .15s ease !important;
+}
+
+.option:hover,
+.answer-option:hover,
+.question-option:hover{
+    transform:
+        translateX(2px);
+
+    background:
+        #f2f8fe !important;
+
+    border-color:
+        #a8cdea !important;
+}
+
+
+/* ==========================================================
+   BOTÕES
+   ========================================================== */
+
+button,
+.btn{
+    transition:
+        transform .16s ease,
+        box-shadow .16s ease,
+        filter .16s ease !important;
+}
+
+button:hover,
+.btn:hover{
+    filter:
+        brightness(1.03);
+}
+
+:is(
+    .btn-primary,
+    button.primary,
+    .primary-button
+){
+    border:0 !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0964bc,
+            #1787e1
+        ) !important;
+
+    box-shadow:
+        0 8px 20px rgba(19,107,194,.18);
+}
+
+:is(
+    .btn-primary,
+    button.primary,
+    .primary-button
+):hover{
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 11px 25px rgba(19,107,194,.25);
+}
+
+
+/* ==========================================================
+   PILLS / BADGES
+   ========================================================== */
+
+.badge,
+.pill,
+.tag{
+    border-radius:
+        999px !important;
+
+    border:
+        1px solid #c7dff3 !important;
+
+    background:
+        #edf6ff !important;
+
+    color:
+        #32658e !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+/* ==========================================================
+   REVISÃO
+   ========================================================== */
+
+.review-answer{
+    margin-top:
+        14px !important;
+}
+
+.chico-smart-review{
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1px solid #bcdcf1 !important;
+
+    border-radius:
+        12px !important;
+
+    background:
+        linear-gradient(
+            120deg,
+            #f3faff,
+            #ffffff
+        ) !important;
+
+    box-shadow:
+        0 8px 21px rgba(22,91,145,.075);
+}
+
+.chico-smart-review::after{
+    content:"";
+
+    position:absolute;
+
+    width:115px;
+    height:115px;
+
+    right:-52px;
+    top:-55px;
+
+    border-radius:50%;
+
+    background:
+        rgba(36,164,214,.06);
+
+    pointer-events:none;
+}
+
+
+/* ==========================================================
+   RANKING DE REVISÃO
+   ========================================================== */
+
+.chico-ranking-panel{
+    filter:
+        drop-shadow(
+            0 9px 20px rgba(21,74,119,.06)
+        );
+}
+
+
+/* ==========================================================
+   NOVA MARCA D'ÁGUA DO CEARÁ
+   ========================================================== */
+
+.chico-v11-state-watermark{
+    position:absolute;
+
+    right:-12px;
+    bottom:-62px;
+
+    width:260px;
+    height:260px;
+
+    opacity:.075;
+
+    object-fit:contain;
+
+    pointer-events:none;
+
+    filter:
+        saturate(1.25)
+        contrast(1.05);
+}
+
+
+/* ==========================================================
+   RAIOS DO CEARÁ
+   ========================================================== */
+
+.chico-v11-rays{
+    position:absolute;
+
+    right:-85px;
+    top:-105px;
+
+    width:360px;
+    height:360px;
+
+    opacity:.17;
+
+    pointer-events:none;
+
+    background:
+        repeating-conic-gradient(
+            from -8deg,
+            #198ee0 0deg 5deg,
+            transparent 5deg 15deg
+        );
+
+    mask-image:
+        radial-gradient(
+            circle,
+            #000 0 55%,
+            transparent 76%
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle,
+            #000 0 55%,
+            transparent 76%
+        );
+}
+
+
+/* ==========================================================
+   ANIMAÇÃO DE ENTRADA DAS VIEWS
+   ========================================================== */
+
+.chico-v11-view-enter{
+    animation:
+        chicoV11ViewEnter
+        .28s ease both;
+}
+
+@keyframes chicoV11ViewEnter{
+
+    from{
+        opacity:.45;
+        transform:translateY(4px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body.dark{
+    --v11-bg:#071b30;
+    --v11-bg-soft:#0a233d;
+    --v11-card:#0c2947;
+    --v11-border:#274e70;
+    --v11-text:#eef7ff;
+    --v11-muted:#abc1d4;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(30,157,208,.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #06182a,
+            #08213a
+        ) !important;
+}
+
+body.dark :is(
+    .card,
+    .stat-card,
+    .metric-card,
+    .dashboard-card,
+    .news-card,
+    .question,
+    .panel
+){
+    background:
+        linear-gradient(
+            180deg,
+            #0d2b49,
+            #0a2440
+        ) !important;
+
+    border-color:
+        #295171 !important;
+
+    color:#edf7ff !important;
+}
+
+body.dark :is(
+    .page-hero,
+    .hero,
+    .section-hero,
+    .view-hero,
+    .panel-hero
+){
+    background:
+        radial-gradient(
+            circle at 90% 22%,
+            rgba(41,185,221,.14),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #0d2f50,
+            #0a2642
+        ) !important;
+
+    border-color:
+        #31597a !important;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media(max-width:760px){
+
+    .chico-v11-state-watermark{
+        width:170px;
+        height:170px;
+
+        right:-40px;
+        bottom:-42px;
+    }
+
+    .chico-v11-rays{
+        width:250px;
+        height:250px;
+
+        right:-80px;
+        top:-70px;
+    }
+}
+
+
+/* CHICO SIDEBAR SCROLL FIX START */
+
+/* Remove apenas a rolagem horizontal.
+   Não altera position, width ou layout da sidebar. */
+
+.sidebar{
+    overflow-x:hidden !important;
+}
+
+.sidebar *{
+    max-width:100%;
+    box-sizing:border-box;
+}
+
+.sidebar::-webkit-scrollbar:horizontal{
+    height:0 !important;
+}
+
+/* CHICO SIDEBAR SCROLL FIX END */

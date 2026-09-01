@@ -3161,8 +3161,230 @@ body.dark .chico-ranking-empty strong{
 }
 
 </style>
+<!-- CHICO LOGIN HEAD START -->
+
+<link
+    rel="stylesheet"
+    href="./assets/css/login-chico.css">
+
+<script>
+(function(){
+
+    var key = "chico_auth_v1";
+
+    var ok =
+        localStorage.getItem(key) === "1" ||
+        sessionStorage.getItem(key) === "1";
+
+    document.documentElement.classList.add(
+        ok
+            ? "chico-auth-ok"
+            : "chico-auth-locked"
+    );
+
+})();
+</script>
+
+<!-- CHICO LOGIN HEAD END -->
+<!-- CHICO V11 VISUAL HEAD START -->
+
+<link
+    rel="stylesheet"
+    href="./assets/css/chico-v11.css">
+
+<!-- CHICO V11 VISUAL HEAD END -->
+
+<!-- CHICO HOME HERO SAFE START -->
+
+<link
+    rel="stylesheet"
+    href="./assets/css/home-hero-v11-safe.css">
+
+<!-- CHICO HOME HERO SAFE END -->
+<!-- CHICO DASHBOARD V11 SAFE START -->
+
+<link
+    rel="stylesheet"
+    href="./assets/css/home-dashboard-v11-safe.css">
+
+<!-- CHICO DASHBOARD V11 SAFE END -->
+<!-- CHICO BANCO V11 SAFE START -->
+
+<link
+    rel="stylesheet"
+    href="./assets/css/banco-v11-safe.css">
+
+<!-- CHICO BANCO V11 SAFE END -->
+<!-- CHICO SIMULADOS V11 SAFE START -->
+<link rel="stylesheet" href="./assets/css/simulados-v11-safe.css">
+<!-- CHICO SIMULADOS V11 SAFE END -->
 </head>
 <body>
+<!-- CHICO LOGIN OVERLAY START -->
+
+<div
+    id="chicoLoginOverlay"
+    aria-label="Acesso ao CHICO Estudos">
+
+    <div class="chico-login-watermark">
+        CEARÁ
+    </div>
+
+    <div class="chico-login-shell">
+
+        <section class="chico-login-brand">
+
+            <div class="chico-login-brand-top">
+
+                <div class="chico-login-government">
+
+                    <span class="chico-login-dot"></span>
+
+                    CEARÁ • SEDUC-CE 2026
+
+                </div>
+
+            </div>
+
+            <div class="chico-login-brand-main">
+
+                <span class="chico-login-mini">
+                    PLATAFORMA DE ESTUDOS
+                </span>
+
+                <h1>
+                    CHICO
+                    <span>ESTUDOS</span>
+                </h1>
+
+                <p class="chico-login-brand-description">
+                    Preparação para Professor de Filosofia,
+                    com banco de questões, simulados,
+                    revisão e acompanhamento de desempenho.
+                </p>
+
+            </div>
+
+            <div class="chico-login-brand-footer">
+                PROFESSOR DE FILOSOFIA
+            </div>
+
+        </section>
+
+
+        <section class="chico-login-form-side">
+
+            <span class="chico-login-access-label">
+                ÁREA RESTRITA
+            </span>
+
+            <h2>
+                Bem-vindo ao CHICO
+            </h2>
+
+            <p class="chico-login-subtitle">
+                Informe seus dados para acessar
+                a plataforma de estudos.
+            </p>
+
+            <form
+                id="chicoLoginForm"
+                autocomplete="on">
+
+                <div class="chico-login-field">
+
+                    <label for="chicoLoginUser">
+                        USUÁRIO
+                    </label>
+
+                    <div class="chico-login-input-wrap">
+
+                        <input
+                            id="chicoLoginUser"
+                            class="chico-login-input"
+                            type="text"
+                            autocomplete="username"
+                            placeholder="Digite seu usuário">
+
+                    </div>
+
+                </div>
+
+
+                <div class="chico-login-field">
+
+                    <label for="chicoLoginPassword">
+                        SENHA
+                    </label>
+
+                    <div class="chico-login-input-wrap">
+
+                        <input
+                            id="chicoLoginPassword"
+                            class="chico-login-input chico-login-password"
+                            type="password"
+                            autocomplete="current-password"
+                            placeholder="Digite sua senha">
+
+                        <button
+                            id="chicoTogglePassword"
+                            type="button"
+                            aria-label="Mostrar senha"
+                            title="Mostrar ou ocultar senha">
+                            ◉
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chico-login-options">
+
+                    <label class="chico-login-remember">
+
+                        <input
+                            id="chicoLoginRemember"
+                            type="checkbox"
+                            checked>
+
+                        <span>
+                            Manter conectado
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    id="chicoLoginSubmit"
+                    type="submit">
+
+                    ENTRAR NO CHICO
+
+                </button>
+
+
+                <div
+                    id="chicoLoginMessage"
+                    role="alert">
+                </div>
+
+
+                <div class="chico-login-security">
+                    ACESSO À PLATAFORMA CHICO ESTUDOS
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- CHICO LOGIN OVERLAY END -->
 <div class="app">
   
 <aside class="sidebar">
@@ -6149,6 +6371,17 @@ function renderUECE(){
 <!-- CHICO RANKING REVISAO START -->
 <script src="./assets/js/ranking-revisao.js"></script>
 <!-- CHICO RANKING REVISAO END -->
+
+<!-- CHICO LOGIN SCRIPT START -->
+
+<script src="./assets/js/login-chico.js"></script>
+
+<!-- CHICO LOGIN SCRIPT END -->
+<!-- CHICO V11 VISUAL SCRIPT START -->
+
+<script src="./assets/js/chico-v11.js"></script>
+
+<!-- CHICO V11 VISUAL SCRIPT END -->
 
 </body>
 </html>

@@ -1,0 +1,593 @@
+/* ==========================================================
+   CHICO V11 — BANCO DE QUESTÕES
+   VERSÃO SEGURA / ESCOPO: #view-bank
+   ========================================================== */
+
+
+/* ==========================================================
+   FUNDO DA VIEW
+   ========================================================== */
+
+#view-bank{
+    --bank-navy:#062a51;
+    --bank-blue:#0874cf;
+    --bank-blue-2:#168fe3;
+    --bank-cyan:#2bc4df;
+    --bank-border:#c7dff0;
+    --bank-soft:#f4faff;
+    --bank-text:#0b3157;
+    --bank-muted:#6e849a;
+}
+
+
+/* ==========================================================
+   CABEÇALHO / PAINEL DE FILTROS
+   ========================================================== */
+
+#view-bank .toolbar-panel{
+    position:relative !important;
+    overflow:hidden !important;
+
+    border:
+        1px solid #2b8fd0 !important;
+
+    border-radius:
+        17px !important;
+
+    background:
+        radial-gradient(
+            circle at 92% 15%,
+            rgba(49,195,230,.22),
+            transparent 26%
+        ),
+        linear-gradient(
+            112deg,
+            #062548 0%,
+            #074c86 55%,
+            #0874c6 100%
+        ) !important;
+
+    color:#fff !important;
+
+    box-shadow:
+        0 15px 38px rgba(5,59,104,.16) !important;
+}
+
+
+/* brilho decorativo */
+
+#view-bank .toolbar-panel::after{
+    content:"";
+
+    position:absolute;
+    right:-80px;
+    top:-105px;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    border:
+        42px solid rgba(255,255,255,.035);
+
+    pointer-events:none;
+}
+
+
+/* textos do cabeçalho */
+
+#view-bank .toolbar-panel h1,
+#view-bank .toolbar-panel h2,
+#view-bank .toolbar-panel h3,
+#view-bank .toolbar-panel strong{
+    color:#fff !important;
+}
+
+
+#view-bank .toolbar-panel p,
+#view-bank .toolbar-panel small{
+    color:#d5e8f6 !important;
+}
+
+
+/* ==========================================================
+   TOOLBAR
+   ========================================================== */
+
+#view-bank .toolbar{
+    position:relative !important;
+    z-index:3 !important;
+
+    gap:10px !important;
+}
+
+
+/* filtros */
+
+#view-bank #areaFilter,
+#view-bank #subareaFilter,
+#view-bank #answeredFilter,
+#view-bank #bankSearch{
+    min-height:42px !important;
+
+    border:
+        1px solid rgba(176,218,241,.46) !important;
+
+    border-radius:
+        10px !important;
+
+    background:
+        rgba(255,255,255,.96) !important;
+
+    color:
+        #123b60 !important;
+
+    box-shadow:
+        0 5px 15px rgba(0,27,57,.08) !important;
+
+    outline:none !important;
+
+    transition:
+        border-color .16s ease,
+        box-shadow .16s ease,
+        transform .16s ease !important;
+}
+
+
+#view-bank #areaFilter:focus,
+#view-bank #subareaFilter:focus,
+#view-bank #answeredFilter:focus,
+#view-bank #bankSearch:focus{
+    border-color:
+        #48c6e4 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(65,194,226,.16),
+        0 7px 18px rgba(0,25,55,.08) !important;
+}
+
+
+/* botão limpar filtros */
+
+#view-bank #clearBankFilters{
+    min-height:42px !important;
+
+    border:
+        1px solid rgba(255,255,255,.30) !important;
+
+    border-radius:
+        10px !important;
+
+    background:
+        rgba(255,255,255,.11) !important;
+
+    color:
+        #fff !important;
+
+    font-weight:
+        900 !important;
+
+    backdrop-filter:
+        blur(6px);
+
+    transition:
+        background .15s ease,
+        transform .15s ease !important;
+}
+
+
+#view-bank #clearBankFilters:hover{
+    background:
+        rgba(255,255,255,.18) !important;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* rodapé do toolbar */
+
+#view-bank .toolbar-foot{
+    position:relative !important;
+    z-index:3 !important;
+
+    border-top:
+        1px solid rgba(255,255,255,.14) !important;
+
+    color:
+        #d5e9f7 !important;
+}
+
+
+/* ==========================================================
+   VISÃO GERAL / MÉTRICAS
+   ========================================================== */
+
+#view-bank .bank-overview{
+    display:grid;
+
+    gap:
+        12px !important;
+
+    margin:
+        16px 0 20px !important;
+}
+
+
+/* caixas que contêm as métricas */
+
+#view-bank .bank-overview > *{
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--bank-border) !important;
+
+    border-radius:
+        13px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f5faff
+        ) !important;
+
+    box-shadow:
+        0 8px 22px rgba(9,71,119,.07) !important;
+}
+
+
+/* linha superior azul-ciano */
+
+#view-bank .bank-overview > *::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0878d1,
+            #2bc1dd
+        );
+}
+
+
+/* números */
+
+#view-bank #bankMetricFound,
+#view-bank #bankMetricAnswered,
+#view-bank #bankMetricPending,
+#view-bank #bankMetricAreas{
+    color:
+        #082f55 !important;
+
+    font-weight:
+        1000 !important;
+}
+
+
+/* ==========================================================
+   LISTA DE QUESTÕES
+   ========================================================== */
+
+#view-bank #questionList{
+    display:grid;
+
+    gap:
+        18px !important;
+}
+
+
+/* ==========================================================
+   CARD DA QUESTÃO
+   ========================================================== */
+
+#view-bank .question{
+    position:relative !important;
+
+    overflow:hidden !important;
+
+    border:
+        1px solid #c6dff0 !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fbfdff 100%
+        ) !important;
+
+    box-shadow:
+        0 10px 27px rgba(8,66,112,.075) !important;
+
+    transition:
+        border-color .17s ease,
+        box-shadow .17s ease,
+        transform .17s ease !important;
+}
+
+
+/* linha superior */
+
+#view-bank .question::before{
+    content:"";
+
+    display:block;
+
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087bd3 0%,
+            #28bfde 47%,
+            rgba(40,191,222,0) 87%
+        );
+}
+
+
+#view-bank .question:hover{
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #a8d1eb !important;
+
+    box-shadow:
+        0 15px 34px rgba(8,66,112,.11) !important;
+}
+
+
+/* ==========================================================
+   METADADOS
+   ========================================================== */
+
+#view-bank .qmeta{
+    color:
+        #55738d !important;
+}
+
+
+/* pills internas, se houver */
+
+#view-bank .qmeta span{
+    border-color:
+        #c7dff0 !important;
+
+    background:
+        #edf7ff !important;
+
+    color:
+        #35698f !important;
+}
+
+
+/* ==========================================================
+   ENUNCIADO
+   ========================================================== */
+
+#view-bank .question h1,
+#view-bank .question h2,
+#view-bank .question h3,
+#view-bank .question strong{
+    color:
+        #0b3157 !important;
+}
+
+
+/* ==========================================================
+   ALTERNATIVAS
+   ========================================================== */
+
+#view-bank .answer-grid{
+    gap:
+        9px !important;
+}
+
+
+/*
+   Estiliza os filhos diretos da grade.
+   Não altera o HTML nem os eventos.
+*/
+
+#view-bank .answer-grid > *{
+    border-radius:
+        10px !important;
+
+    transition:
+        transform .14s ease,
+        border-color .14s ease,
+        background .14s ease,
+        box-shadow .14s ease !important;
+}
+
+
+#view-bank .answer-grid > *:hover{
+    transform:
+        translateX(2px);
+
+    border-color:
+        #9dcbea !important;
+
+    background:
+        #f2f9ff !important;
+
+    box-shadow:
+        0 5px 14px rgba(9,78,130,.055);
+}
+
+
+/* radio */
+
+#view-bank .answer-grid input[type="radio"]{
+    accent-color:
+        #087bd3 !important;
+}
+
+
+/* ==========================================================
+   QUESTÃO DISCURSIVA
+   ========================================================== */
+
+#view-bank .open-answer{
+    border:
+        1px solid #cbdfee !important;
+
+    border-radius:
+        10px !important;
+
+    background:
+        #fbfdff !important;
+
+    color:
+        #183b5a !important;
+
+    outline:none !important;
+}
+
+
+#view-bank .open-answer:focus{
+    border-color:
+        #2799d8 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(39,153,216,.10) !important;
+}
+
+
+/* ==========================================================
+   PAGINAÇÃO
+   ========================================================== */
+
+#view-bank #pager{
+    margin-top:
+        22px !important;
+
+    padding:
+        12px !important;
+
+    border:
+        1px solid #cadfed !important;
+
+    border-radius:
+        12px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f6faff
+        ) !important;
+
+    box-shadow:
+        0 7px 20px rgba(8,67,113,.06) !important;
+}
+
+
+/* botões da paginação */
+
+#view-bank #pager button{
+    border:
+        1px solid #bdd9ed !important;
+
+    border-radius:
+        8px !important;
+
+    background:
+        #f4faff !important;
+
+    color:
+        #1765a5 !important;
+
+    font-weight:
+        800 !important;
+}
+
+
+#view-bank #pager button:hover{
+    background:
+        #e7f5ff !important;
+
+    border-color:
+        #91c6e8 !important;
+}
+
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body.dark #view-bank .toolbar-panel{
+    background:
+        linear-gradient(
+            112deg,
+            #051d35,
+            #07375e
+        ) !important;
+}
+
+
+body.dark #view-bank .bank-overview > *,
+body.dark #view-bank .question,
+body.dark #view-bank #pager{
+    background:
+        linear-gradient(
+            180deg,
+            #0d2c49,
+            #09243e
+        ) !important;
+
+    border-color:
+        #2b5575 !important;
+}
+
+
+body.dark #view-bank .question h1,
+body.dark #view-bank .question h2,
+body.dark #view-bank .question h3,
+body.dark #view-bank .question strong,
+body.dark #view-bank #bankMetricFound,
+body.dark #view-bank #bankMetricAnswered,
+body.dark #view-bank #bankMetricPending,
+body.dark #view-bank #bankMetricAreas{
+    color:
+        #eff8ff !important;
+}
+
+
+body.dark #view-bank .qmeta{
+    color:
+        #acc5d9 !important;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media(max-width:800px){
+
+    #view-bank .toolbar{
+        gap:
+            8px !important;
+    }
+
+    #view-bank .question{
+        border-radius:
+            12px !important;
+    }
+
+}

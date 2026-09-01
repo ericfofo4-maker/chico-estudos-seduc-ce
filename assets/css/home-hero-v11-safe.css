@@ -1,0 +1,471 @@
+/* ==========================================================
+   CHICO V11 — HOME HERO
+   VERSÃO SEGURA
+   ========================================================== */
+
+
+/* ==========================================================
+   CONTAINER PRINCIPAL
+   ========================================================== */
+
+.course-hero-v7{
+    position:relative !important;
+
+    overflow:hidden !important;
+
+    border:
+        1px solid rgba(42,159,223,.60) !important;
+
+    border-radius:
+        20px !important;
+
+    background:
+        #072f5c !important;
+
+    box-shadow:
+        0 20px 48px rgba(3,46,87,.18) !important;
+}
+
+
+/* ==========================================================
+   PAINEL ESQUERDO
+   ========================================================== */
+
+.course-hero-copy{
+    position:relative !important;
+
+    overflow:hidden !important;
+
+    background:
+        radial-gradient(
+            circle at 88% 42%,
+            rgba(30,165,226,.28),
+            transparent 31%
+        ),
+        linear-gradient(
+            125deg,
+            #061e3c 0%,
+            #073866 52%,
+            #075ca0 100%
+        ) !important;
+
+    color:#ffffff !important;
+}
+
+
+/* brilho suave no painel esquerdo */
+
+.course-hero-copy::after{
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    right:-135px;
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(43,191,227,.20),
+            transparent 68%
+        );
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* conteúdo textual acima dos efeitos */
+
+.course-hero-copy > *{
+    position:relative;
+    z-index:3;
+}
+
+
+/* ==========================================================
+   MARCA D'ÁGUA DO BRASÃO
+   ========================================================== */
+
+.course-hero-copy .v9-watermark-emblem{
+    position:absolute !important;
+
+    right:2% !important;
+    top:50% !important;
+
+    width:430px !important;
+    height:430px !important;
+
+    transform:
+        translateY(-50%) !important;
+
+    object-fit:contain !important;
+
+    opacity:.055 !important;
+
+    filter:
+        saturate(1.25)
+        contrast(1.05) !important;
+
+    pointer-events:none !important;
+
+    z-index:1 !important;
+}
+
+
+/* ==========================================================
+   BRASÃO MENOR INCLINADO
+   ========================================================== */
+
+.course-hero-v7 .v9-tilted-emblem{
+    position:absolute !important;
+
+    right:7% !important;
+    top:13% !important;
+
+    width:72px !important;
+    height:72px !important;
+
+    object-fit:contain !important;
+
+    transform:
+        rotate(7deg) !important;
+
+    filter:
+        saturate(1.22)
+        contrast(1.05)
+        drop-shadow(
+            0 9px 11px rgba(0,15,34,.28)
+        ) !important;
+
+    z-index:6 !important;
+}
+
+
+/* ==========================================================
+   BLOCO DO TÍTULO
+   ========================================================== */
+
+.course-hero-copy .v9-title-wrap{
+    position:relative !important;
+
+    z-index:4 !important;
+}
+
+
+/* preparação */
+
+.course-hero-copy .v9-kicker{
+    display:inline-flex !important;
+
+    align-items:center !important;
+
+    min-height:34px !important;
+
+    padding:
+        0 16px !important;
+
+    border:
+        1px solid rgba(87,209,236,.38) !important;
+
+    border-radius:
+        999px !important;
+
+    background:
+        rgba(23,126,201,.25) !important;
+
+    color:
+        #55d8f2 !important;
+
+    font-weight:
+        1000 !important;
+
+    letter-spacing:
+        1.15px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 7px 20px rgba(0,23,48,.12) !important;
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+/* SEDUC-CE */
+
+.course-hero-copy .v9-main-title{
+    color:
+        #ffffff !important;
+
+    text-shadow:
+        0 8px 24px rgba(0,15,33,.27) !important;
+}
+
+
+/* PROFESSOR DE FILOSOFIA */
+
+.course-hero-copy .v9-sub-title{
+    color:
+        #55ccef !important;
+
+    text-shadow:
+        0 7px 20px rgba(0,15,33,.22) !important;
+}
+
+
+/* linha abaixo do título */
+
+.course-hero-copy .v9-title-rule{
+    background:
+        linear-gradient(
+            90deg,
+            #45d3e8,
+            #228ce0,
+            rgba(34,140,224,0)
+        ) !important;
+
+    border:0 !important;
+
+    box-shadow:
+        0 2px 12px rgba(43,182,224,.18);
+}
+
+
+/* descrição */
+
+.course-hero-copy .v9-description{
+    color:
+        #dcecf8 !important;
+
+    line-height:
+        1.58 !important;
+
+    text-shadow:
+        0 2px 8px rgba(0,18,39,.13) !important;
+}
+
+
+/* ==========================================================
+   PROGRESSO
+   ========================================================== */
+
+.course-hero-copy .hero-progress-v7{
+    position:relative !important;
+
+    z-index:5 !important;
+
+    border:
+        1px solid rgba(137,209,237,.27) !important;
+
+    border-radius:
+        13px !important;
+
+    background:
+        rgba(255,255,255,.095) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.09),
+        0 9px 23px rgba(0,25,51,.11) !important;
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+.course-hero-copy .hero-progress-v7 strong{
+    color:
+        #ffffff !important;
+}
+
+
+.course-hero-copy .hero-progress-v7 span,
+.course-hero-copy .hero-progress-v7 small{
+    color:
+        #d5e7f4 !important;
+}
+
+
+/* ==========================================================
+   PAINEL DIREITO — BRASÃO
+   ========================================================== */
+
+.course-emblem-card-v7{
+    position:relative !important;
+
+    overflow:hidden !important;
+
+    isolation:isolate;
+
+    background:
+        radial-gradient(
+            circle at 50% 47%,
+            rgba(43,189,230,.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #06396d 0%,
+            #075ca5 52%,
+            #0879ce 100%
+        ) !important;
+
+    border-left:
+        1px solid rgba(92,201,235,.30) !important;
+}
+
+
+/* ==========================================================
+   RAIOS — MESMA LINGUAGEM DO LOGIN
+   ========================================================== */
+
+.course-emblem-card-v7::before{
+    content:"";
+
+    position:absolute;
+
+    width:620px;
+    height:620px;
+
+    left:50%;
+    top:48%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        repeating-conic-gradient(
+            from -7deg,
+
+            rgba(65,199,239,.85) 0deg 5deg,
+            transparent 5deg 15deg
+        );
+
+    -webkit-mask-image:
+        radial-gradient(
+            circle,
+            #000 0 50%,
+            transparent 73%
+        );
+
+    mask-image:
+        radial-gradient(
+            circle,
+            #000 0 50%,
+            transparent 73%
+        );
+
+    opacity:.67;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* brilho atrás do brasão */
+
+.course-emblem-card-v7::after{
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    left:50%;
+    top:48%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.18) 0%,
+            rgba(43,184,228,.13) 46%,
+            transparent 72%
+        );
+
+    pointer-events:none;
+
+    z-index:1;
+}
+
+
+/* mantém conteúdo acima dos raios */
+
+.course-emblem-card-v7 > *{
+    position:relative;
+    z-index:3;
+}
+
+
+/* ==========================================================
+   BRASÃO PRINCIPAL
+   ========================================================== */
+
+.course-emblem-card-v7 > img,
+.course-emblem-card-v7 .brandmark-v7 img,
+.course-emblem-card-v7 img{
+    position:relative !important;
+
+    z-index:4 !important;
+
+    filter:
+        saturate(1.24)
+        contrast(1.06)
+        drop-shadow(
+            0 17px 16px rgba(0,17,37,.32)
+        ) !important;
+}
+
+
+/* textos do painel */
+
+.course-emblem-card-v7 strong,
+.course-emblem-card-v7 h2,
+.course-emblem-card-v7 h3{
+    color:
+        #ffffff !important;
+
+    text-shadow:
+        0 4px 14px rgba(0,17,37,.25) !important;
+}
+
+
+.course-emblem-card-v7 span,
+.course-emblem-card-v7 p{
+    color:
+        #cce8f7 !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media(max-width:900px){
+
+    .course-hero-copy .v9-watermark-emblem{
+        width:300px !important;
+        height:300px !important;
+
+        right:-70px !important;
+    }
+
+
+    .course-emblem-card-v7::before{
+        width:430px;
+        height:430px;
+    }
+
+}

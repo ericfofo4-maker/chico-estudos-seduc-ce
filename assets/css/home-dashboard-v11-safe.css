@@ -1,0 +1,504 @@
+/* ==========================================================
+   CHICO V11
+   HOME — RADAR + TABS + MÉTRICAS
+   SELETORES REAIS / VERSÃO SEGURA
+   ========================================================== */
+
+
+/* ==========================================================
+   RADAR SEDUC-CE
+   ========================================================== */
+
+.dashboard-v7 .v10-radar-home{
+    position:relative !important;
+
+    overflow:hidden !important;
+
+    margin-top:18px !important;
+
+    border:
+        1px solid #b8d9ef !important;
+
+    border-left:
+        4px solid #21b8dd !important;
+
+    border-radius:
+        14px !important;
+
+    background:
+        linear-gradient(
+            105deg,
+            #ffffff 0%,
+            #f3faff 68%,
+            #e9f6ff 100%
+        ) !important;
+
+    box-shadow:
+        0 12px 30px rgba(7,64,111,.12) !important;
+}
+
+
+/* brilho decorativo */
+
+.dashboard-v7 .v10-radar-home::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-75px;
+    top:-85px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(34,184,221,.14),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+/* topo do radar */
+
+.dashboard-v7 .v10-radar-top{
+    position:relative !important;
+    z-index:2 !important;
+}
+
+
+/* label RADAR SEDUC-CE */
+
+.dashboard-v7 .v10-radar-label{
+    color:#0871c9 !important;
+
+    font-weight:1000 !important;
+
+    letter-spacing:1.15px !important;
+}
+
+
+/* cronograma oficial / indicador */
+
+.dashboard-v7 .v10-radar-live{
+    border:
+        1px solid #b7e6d1 !important;
+
+    border-radius:
+        999px !important;
+
+    background:
+        #effbf5 !important;
+
+    color:
+        #26845a !important;
+
+    font-weight:
+        900 !important;
+}
+
+
+/* título principal */
+
+.dashboard-v7 .v10-radar-title{
+    color:
+        #0a3158 !important;
+
+    font-weight:
+        1000 !important;
+}
+
+
+/* informação */
+
+.dashboard-v7 .v10-radar-info{
+    color:
+        #688097 !important;
+
+    line-height:
+        1.5 !important;
+}
+
+
+/* rodapé */
+
+.dashboard-v7 .v10-radar-bottom{
+    border-top:
+        1px solid #d9e8f3 !important;
+}
+
+
+/* ==========================================================
+   TABS DA HOME
+   ========================================================== */
+
+.dashboard-v7 .dashboard-tabs-v7{
+    margin-top:
+        18px !important;
+
+    padding:
+        0 14px !important;
+
+    border:
+        1px solid #c6deef !important;
+
+    border-radius:
+        13px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f8fbff
+        ) !important;
+
+    box-shadow:
+        0 8px 24px rgba(13,72,118,.075) !important;
+
+    overflow:hidden !important;
+}
+
+
+/* abas */
+
+.dashboard-v7 .dash-tab{
+    position:relative !important;
+
+    border:0 !important;
+
+    background:
+        transparent !important;
+
+    color:
+        #526d86 !important;
+
+    font-weight:
+        800 !important;
+
+    transition:
+        color .15s ease,
+        background .15s ease,
+        transform .15s ease !important;
+}
+
+
+.dashboard-v7 .dash-tab:hover{
+    color:
+        #0b6fc7 !important;
+
+    background:
+        #f2f8fe !important;
+}
+
+
+/* aba ativa */
+
+.dashboard-v7 .dash-tab.active{
+    color:
+        #0875ce !important;
+
+    font-weight:
+        1000 !important;
+
+    background:
+        transparent !important;
+}
+
+
+/* linha ativa */
+
+.dashboard-v7 .dash-tab.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+    right:12px;
+    bottom:0;
+
+    height:3px;
+
+    border-radius:
+        999px 999px 0 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0e7fd6,
+            #27bcdc
+        );
+}
+
+
+/* ==========================================================
+   GRID DE MÉTRICAS
+   ========================================================== */
+
+.dashboard-v7 .metrics-grid-v7{
+    gap:
+        14px !important;
+
+    margin-top:
+        18px !important;
+}
+
+
+/* ==========================================================
+   CARD
+   ========================================================== */
+
+.dashboard-v7 .metric-card-v7{
+    position:relative !important;
+
+    overflow:hidden !important;
+
+    min-height:
+        175px;
+
+    border:
+        1px solid #c6deef !important;
+
+    border-radius:
+        15px !important;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f5faff 100%
+        ) !important;
+
+    box-shadow:
+        0 10px 27px rgba(8,68,116,.085) !important;
+
+    transition:
+        transform .17s ease,
+        box-shadow .17s ease,
+        border-color .17s ease !important;
+}
+
+
+/* linha viva superior */
+
+.dashboard-v7 .metric-card-v7::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+    right:0;
+
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0879d2 0%,
+            #29c1dd 100%
+        );
+}
+
+
+/* detalhe decorativo */
+
+.dashboard-v7 .metric-card-v7::after{
+    content:"";
+
+    position:absolute;
+
+    width:115px;
+    height:115px;
+
+    right:-55px;
+    bottom:-58px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(24,150,214,.075),
+            transparent 70%
+        );
+
+    pointer-events:none;
+}
+
+
+.dashboard-v7 .metric-card-v7:hover{
+    transform:
+        translateY(-3px);
+
+    border-color:
+        #9ecbea !important;
+
+    box-shadow:
+        0 16px 34px rgba(8,68,116,.13) !important;
+}
+
+
+/* ==========================================================
+   TÍTULO DO CARD
+   ========================================================== */
+
+.dashboard-v7 .metric-title-v7{
+    position:relative !important;
+    z-index:2 !important;
+
+    color:
+        #0c3155 !important;
+
+    font-weight:
+        1000 !important;
+}
+
+
+/* ==========================================================
+   ÍCONES
+   ========================================================== */
+
+.dashboard-v7 .metric-icon-v7{
+    position:relative !important;
+
+    z-index:2 !important;
+
+    border:
+        1px solid #a9d3ee !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ecf8ff,
+            #ffffff
+        ) !important;
+
+    color:
+        #0877cd !important;
+
+    box-shadow:
+        0 7px 18px rgba(7,99,170,.09) !important;
+}
+
+
+/* desempenho continua verde */
+
+.dashboard-v7 .metric-icon-v7.performance{
+    border-color:
+        #a9dfc5 !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            #eefbf5,
+            #ffffff
+        ) !important;
+
+    color:
+        #19945d !important;
+}
+
+
+/* ==========================================================
+   TEXTO / NÚMEROS
+   ========================================================== */
+
+.dashboard-v7 .metric-copy-v7{
+    position:relative !important;
+    z-index:2 !important;
+
+    color:
+        #6b8298 !important;
+}
+
+
+.dashboard-v7 .metric-card-v7 strong{
+    color:
+        #082e53 !important;
+}
+
+
+/* ==========================================================
+   PROGRESSO
+   ========================================================== */
+
+.dashboard-v7 .progress-metric-layout{
+    position:relative !important;
+    z-index:2 !important;
+}
+
+
+.dashboard-v7 #progressRing{
+    filter:
+        drop-shadow(
+            0 6px 12px rgba(7,102,176,.08)
+        );
+}
+
+
+/* ==========================================================
+   DARK MODE
+   ========================================================== */
+
+body.dark .dashboard-v7 .v10-radar-home,
+body.dark .dashboard-v7 .dashboard-tabs-v7,
+body.dark .dashboard-v7 .metric-card-v7{
+    background:
+        linear-gradient(
+            180deg,
+            #0c2c4a,
+            #09233e
+        ) !important;
+
+    border-color:
+        #295878 !important;
+}
+
+
+body.dark .dashboard-v7 .v10-radar-title,
+body.dark .dashboard-v7 .metric-title-v7,
+body.dark .dashboard-v7 .metric-card-v7 strong{
+    color:
+        #f0f8ff !important;
+}
+
+
+body.dark .dashboard-v7 .v10-radar-info,
+body.dark .dashboard-v7 .metric-copy-v7{
+    color:
+        #b4cada !important;
+}
+
+
+body.dark .dashboard-v7 .dash-tab{
+    color:
+        #aec6d9 !important;
+}
+
+
+body.dark .dashboard-v7 .dash-tab.active{
+    color:
+        #55ccec !important;
+}
+
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+@media(max-width:900px){
+
+    .dashboard-v7 .metrics-grid-v7{
+        gap:12px !important;
+    }
+
+    .dashboard-v7 .metric-card-v7{
+        min-height:
+            auto;
+    }
+}
