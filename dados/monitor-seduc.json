@@ -1,18 +1,26 @@
 {
-    "fonte":  "CEV/UECE",
-    "concurso":  "SEDUC-CE 2026",
-    "url":  "https://www.cev.uece.br/concursoseduc2026/",
-    "criado_em":  "2026-08-31T19:18:16-03:00",
-    "hash":  "fb71baa9194a963fb6323b80d4ac61ce6d334db343392d6fe98b398c1b86d24d",
-    "quantidade":  2,
-    "publicacoes":  [
-                        {
-                            "texto":  "14/08/2026 (19:54) – Edital Nº 014/2026-SEDUC/SEPLAG",
-                            "url":  "https://www.cev.uece.br/wp-content/uploads/2026/08/do20260814p01.pdf"
-                        },
-                        {
-                            "texto":  "14/08/2026 (20:27) – Cronograma de Eventos do Concurso (Parte 1)",
-                            "url":  "https://www.cev.uece.br/wp-content/uploads/2026/08/cronogramaseduc2026.pdf"
-                        }
-                    ]
+  "fonte": "CEV/UECE",
+  "concurso": "SEDUC-CE 2026",
+  "url": "https://www.cev.uece.br/concursoseduc2026/",
+  "atualizado_em": "2026-09-15T19:24:08-03:00",
+  "hash": "5ec96ea100eab06656991eba8faf194d1d5ab449b0b568065e31031326e9e5b4",
+  "quantidade": 4,
+  "publicacoes": [
+    {
+      "texto": "14/08/2026 (19:54) – Edital Nº 014/2026-SEDUC/SEPLAG",
+      "url": "https://www.cev.uece.br/wp-content/uploads/2026/08/do20260814p01.pdf"
+    },
+    {
+      "texto": "14/08/2026 (20:27) – Cronograma de Eventos do Concurso (Parte 1)",
+      "url": "https://www.cev.uece.br/wp-content/uploads/2026/08/cronogramaseduc2026.pdf"
+    },
+    {
+      "texto": "15/09/2026 (18:12) – Comunicado Nº 255/2026-CEV/UECE",
+      "url": "https://www.cev.uece.br/wp-content/uploads/2026/09/comunicado2552026cev.pdf"
+    },
+    {
+      "texto": "15/09/2026 (18:47) – Inscrição On-line",
+      "url": "https://www2.cev.uece.br/concs/2026/seduc/inscricao"
+    }
+  ]
 }

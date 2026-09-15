@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-08-31",
+  "atualizado_em": "2026-09-15T19:24:08-03:00",
   "concurso_principal": "SEDUC-CE 2026",
   "noticias": [
     {
@@ -84,6 +84,19 @@
       "fonte": "CEV/UECE",
       "url": "https://www.cev.uece.br/concurso-para-professor-e-nutricionista-da-prefeitura-de-itapipoca/",
       "urgente": false,
+      "ativo": true
+    },
+    {
+      "id": "seduc-atualizacao-detectada",
+      "tipo": "seduc",
+      "municipio": null,
+      "titulo": "Nova atualizaÃ§Ã£o detectada na pÃ¡gina oficial da SEDUC-CE 2026",
+      "resumo": "O Radar CHICO identificou mudanÃ§a nas publicaÃ§Ãµes oficiais da CEV/UECE. Consulte a pÃ¡gina oficial para verificar o novo documento ou comunicado.",
+      "data": "2026-09-15",
+      "situacao": "NOVA PUBLICAÃ‡ÃƒO",
+      "fonte": "CEV/UECE",
+      "url": "https://www.cev.uece.br/concursoseduc2026/",
+      "urgente": true,
       "ativo": true
     }
   ]
