@@ -2,9 +2,9 @@
   "fonte": "CEV/UECE",
   "concurso": "SEDUC-CE 2026",
   "url": "https://www.cev.uece.br/concursoseduc2026/",
-  "atualizado_em": "2026-09-15T19:24:08-03:00",
-  "hash": "5ec96ea100eab06656991eba8faf194d1d5ab449b0b568065e31031326e9e5b4",
-  "quantidade": 4,
+  "atualizado_em": "2026-09-17T19:22:56-03:00",
+  "hash": "6b8959f9116417cadc9bd571565f7e68d2bd6c7ab3681aee95362ef592f22674",
+  "quantidade": 5,
   "publicacoes": [
     {
       "texto": "14/08/2026 (19:54) – Edital Nº 014/2026-SEDUC/SEPLAG",
@@ -21,6 +21,10 @@
     {
       "texto": "15/09/2026 (18:47) – Inscrição On-line",
       "url": "https://www2.cev.uece.br/concs/2026/seduc/inscricao"
+    },
+    {
+      "texto": "17/09/2026 (13:34) – Comunicado Nº 256/2026-CEV/UECE",
+      "url": "https://www.cev.uece.br/wp-content/uploads/2026/09/comunicado2562026cev.pdf"
     }
   ]
 }
