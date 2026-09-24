@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "atualizado_em": "2026-09-17T19:22:56-03:00",
+  "atualizado_em": "2026-09-23T21:29:12-03:00",
   "concurso_principal": "SEDUC-CE 2026",
   "noticias": [
     {
@@ -96,6 +96,21 @@
       "situacao": "NOVA PUBLICAÃ‡ÃƒO",
       "fonte": "CEV/UECE",
       "url": "https://www.cev.uece.br/concursoseduc2026/",
+      "urgente": true,
+      "ativo": true
+    },
+    {
+      "id": "uruburetama-atualizacao-detectada",
+      "tipo": "municipio",
+      "municipio": "Uruburetama",
+      "uf": "CE",
+      "titulo": "Nova atualização detectada no concurso de Uruburetama",
+      "resumo": "O Radar CHICO identificou alteração na página oficial do concurso. Consulte a banca IDIB para verificar o novo edital, retificação, resultado ou comunicado.",
+      "data": "2026-09-23",
+      "situacao": "NOVA PUBLICAÇÃO",
+      "banca": "IDIB",
+      "fonte": "IDIB",
+      "url": "https://concurso.idib.org.br/Concurso.aspx?ID=354",
       "urgente": true,
       "ativo": true
     }
