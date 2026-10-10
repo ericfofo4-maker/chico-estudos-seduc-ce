@@ -4,14 +4,22 @@
   "uf": "CE",
   "concurso": "Edital 01/2026",
   "url": "https://concurso.idib.org.br/Concurso.aspx?ID=354",
-  "atualizado_em": "2026-09-23T21:29:12-03:00",
+  "atualizado_em": "2026-10-09T22:44:57-03:00",
   "inscricoes": "07/07/2026 a 08/09/2026",
-  "hash": "e805e5c5c89dd4cfcb2972c0bdf7c90beb82769e65208c6f2bf67a36b89fe939",
-  "quantidade": 12,
+  "hash": "57c6ed58e6a7935891a7d0615d2406090ff01cfc5e7ba9569b8b404cd9dc9095",
+  "quantidade": 15,
   "documentos": [
     {
       "texto": "EDITAL Nº 01/2026, DE 07 DE JULHO DE 2026",
       "url": "https://concurso.idib.org.br/ConcursoDownloadArquivo.aspx?ID2=1&ID=B0YFOYAA2B1SJ2F64OVUVY9C2SW4OBJYX9WJKPUYKWR29E0F9GU15PJ24YJRTHAWPAS3FQVMHKHMAY758724.pdf"
+    },
+    {
+      "texto": "LINK - RESULTADO DEFINITIVO DE LISTAS (PCD)",
+      "url": "https://concurso.idib.org.br/Conteudo.aspx?ID=26100909133614416865614100077372331107543834602052"
+    },
+    {
+      "texto": "LINK - RESULTADO DEFINITIVO DE LISTAS (PPPIQ)",
+      "url": "https://concurso.idib.org.br/Conteudo.aspx?ID=26100909144083843180126072483301464887786103785738"
     },
     {
       "texto": "LINK - RESULTADO PRELIMINAR DE LISTAS (PCD)",
@@ -28,6 +36,10 @@
     {
       "texto": "RESULTADO DEFINITIVO DE ISENÇÃO",
       "url": "https://concurso.idib.org.br/ConcursoDownloadArquivo.aspx?ID2=1&ID=4T0WL5XL8HK82XHQY9L92F5WFGYX2N7S220S5UORAH28MOXFTW13DYY1DVR7F461XSPUGKMOGBA9ADPB9043.pdf"
+    },
+    {
+      "texto": "RESULTADO DEFINITIVO DE LISTAS (PPPIQ; ATENDIMENTO ESPECIAL E PCD)",
+      "url": "https://concurso.idib.org.br/ConcursoDownloadArquivo.aspx?ID2=1&ID=R1RFLKANRIBAXAL0HW2Q4O0HHYB94D8CQ7XTK0UE6ISD8SNS0M98H399DJPPUQGSV52NKPU4XM9QVJC29134.pdf"
     },
     {
       "texto": "RESULTADO PRELIMINAR DE ISENÇÃO",
