@@ -2,9 +2,9 @@
   "fonte": "CEV/UECE",
   "concurso": "SEDUC-CE 2026",
   "url": "https://www.cev.uece.br/concursoseduc2026/",
-  "atualizado_em": "2026-10-12T16:47:03-03:00",
-  "hash": "711eb915ee6511502a2d0e3b507cbaaf9beb1654595fff6da33566b56c852664",
-  "quantidade": 8,
+  "atualizado_em": "2026-10-28T22:47:20-03:00",
+  "hash": "fd96acb536d0493949174c753acba9159c36f1b251d8e7eabc19ff6dcfbeca54",
+  "quantidade": 9,
   "publicacoes": [
     {
       "texto": "05/10/2026 (15:14) – Comunicado Nº 272/2026-CEV/UECE",
@@ -37,6 +37,10 @@
     {
       "texto": "17/09/2026 (13:34) – Comunicado Nº 256/2026-CEV/UECE",
       "url": "https://www.cev.uece.br/wp-content/uploads/2026/09/comunicado2562026cev.pdf"
+    },
+    {
+      "texto": "28/10/2026 (18:09) – Comunicado Nº 305/2026-CEV/UECE",
+      "url": "https://www.cev.uece.br/wp-content/uploads/2026/10/comunicado3052026cev.pdf"
     }
   ]
 }
