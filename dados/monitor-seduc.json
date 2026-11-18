@@ -2,9 +2,9 @@
   "fonte": "CEV/UECE",
   "concurso": "SEDUC-CE 2026",
   "url": "https://www.cev.uece.br/concursoseduc2026/",
-  "atualizado_em": "2026-11-15T14:02:47-03:00",
-  "hash": "30792056fe8817cda72fa298f86f543c780be9bbff08b92f66768e0e3224acd6",
-  "quantidade": 11,
+  "atualizado_em": "2026-11-18T00:41:59-03:00",
+  "hash": "40fb33e1edbf6ce6293f4b015ed63cffd0dc3bfcc1a3b6e638402cc4a1db79c0",
+  "quantidade": 12,
   "publicacoes": [
     {
       "texto": "05/10/2026 (15:14) – Comunicado Nº 272/2026-CEV/UECE",
@@ -45,6 +45,10 @@
     {
       "texto": "17/09/2026 (13:34) – Comunicado Nº 256/2026-CEV/UECE",
       "url": "https://www.cev.uece.br/wp-content/uploads/2026/09/comunicado2562026cev.pdf"
+    },
+    {
+      "texto": "17/11/2026 (17:49) – Cartão de Informação do Candidato",
+      "url": "https://www2.cev.uece.br/concs/2026/seduc/concurso/consulta_cartao_informacao"
     },
     {
       "texto": "28/10/2026 (18:09) – Comunicado Nº 305/2026-CEV/UECE",
