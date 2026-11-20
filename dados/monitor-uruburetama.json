@@ -4,10 +4,10 @@
   "uf": "CE",
   "concurso": "Edital 01/2026",
   "url": "https://concurso.idib.org.br/Concurso.aspx?ID=354",
-  "atualizado_em": "2026-10-09T22:44:57-03:00",
+  "atualizado_em": "2026-11-20T00:09:57-03:00",
   "inscricoes": "07/07/2026 a 08/09/2026",
-  "hash": "57c6ed58e6a7935891a7d0615d2406090ff01cfc5e7ba9569b8b404cd9dc9095",
-  "quantidade": 15,
+  "hash": "dd60408df012dbb709c4e5ebb11644f2b1c9be53997bb9af0293cdee85c83ee4",
+  "quantidade": 16,
   "documentos": [
     {
       "texto": "EDITAL Nº 01/2026, DE 07 DE JULHO DE 2026",
@@ -28,6 +28,10 @@
     {
       "texto": "LINK - RESULTADO PRELIMINAR DE LISTAS (PPPIQ)",
       "url": "https://concurso.idib.org.br/Conteudo.aspx?ID=26092212230474723158110830426433401643666564322815"
+    },
+    {
+      "texto": "LOCAIS DE PROVA",
+      "url": "https://concurso.idib.org.br/Conteudo.aspx?ID=26111919424312172033000652855004307677833441670838"
     },
     {
       "texto": "RESPOSTAS DAS IMPUGNAÇÕES DO EDITAL",
